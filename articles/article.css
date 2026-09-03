@@ -1,0 +1,343 @@
+/* ==========================================================================
+   Trivarone — article styles
+   Uploads to: trivarone-site/articles/article.css
+   Extends style.css. Only adds what articles need; nothing here affects
+   the four main pages.
+   ========================================================================== */
+
+/* ------------------------------------------------------------- article body */
+
+.articlebody {
+  max-width: var(--measure);
+}
+
+.articlebody p {
+  margin: 0 0 1.15rem;
+}
+
+.articlebody h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 3rem 0 1rem;
+  max-width: 30ch;
+}
+
+.articlebody h2:first-child {
+  margin-top: 0;
+}
+
+.articlebody h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 2rem 0 0.6rem;
+}
+
+.articlebody ul,
+.articlebody ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.35rem;
+}
+
+.articlebody li {
+  margin-bottom: 0.5rem;
+}
+
+.articlebody strong {
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ tables */
+
+.articlebody table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0 2.25rem;
+  font-size: 0.9375rem;
+}
+
+.articlebody th {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+  font-weight: 500;
+  padding: 0.7rem 0.9rem 0.7rem 0;
+  border-bottom: 1px solid var(--navy);
+}
+
+.articlebody td {
+  padding: 0.8rem 0.9rem 0.8rem 0;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+  color: var(--slate);
+}
+
+.articlebody td:first-child {
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------- quote and code */
+
+.articlebody blockquote {
+  margin: 2.25rem 0;
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  border-left: 3px solid var(--gold);
+  font-family: var(--display);
+  font-size: 1.25rem;
+  line-height: 1.45;
+  color: var(--navy);
+}
+
+.articlebody blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.articlebody code {
+  font-family: var(--mono);
+  font-size: 0.875em;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  padding: 0.1em 0.4em;
+}
+
+.articlebody pre {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--gold);
+  padding: 1.15rem 1.35rem;
+  overflow-x: auto;
+  margin: 1.75rem 0 2.25rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.articlebody pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+/* ----------------------------------------------------------- sources note */
+
+.sourcenote {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  line-height: 1.8;
+  color: var(--slate);
+  border-top: 1px solid var(--rule);
+  padding-top: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+/* ------------------------------------------------------------ article meta */
+
+.articlemeta {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 0 0 1.5rem;
+}
+
+.articlemeta span {
+  color: var(--gold);
+  padding: 0 0.5rem;
+}
+
+/* ---------------------------------------------------------- listing page */
+
+.postlist {
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.postlist li {
+  border-top: 1px solid var(--rule);
+  padding-block: 2rem;
+}
+
+.postlist li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.postlist h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  line-height: 1.25;
+  margin: 0.6rem 0 0.7rem;
+  max-width: 34ch;
+}
+
+.postlist h3 a {
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.postlist h3 a:hover {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.postlist p {
+  margin: 0;
+  color: var(--slate);
+  max-width: 60ch;
+}
+
+.postmeta {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 0;
+}
+
+.postmeta span {
+  color: var(--gold);
+  padding: 0 0.45rem;
+}
+
+/* --------------------------------------------------------------- back link */
+
+.backlink {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2.5rem;
+}
+
+/* ------------------------------------------------------------------ mobile */
+
+@media (max-width: 34rem) {
+  .articlebody table {
+    font-size: 0.875rem;
+  }
+
+  .articlebody th,
+  .articlebody td {
+    padding-right: 0.5rem;
+  }
+
+  .articlebody blockquote {
+    font-size: 1.1rem;
+    padding-left: 1.1rem;
+  }
+}
+
+/* ----------------------------------------------------- byline link styling */
+
+.articlemeta a {
+  color: var(--slate);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.articlemeta a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+/* -------------------------------------------- listing page title spacing */
+/* The listing page has no standfirst, so the default titleblock padding
+   leaves a large gap. This trims it without affecting other pages.        */
+
+.articles-index .titleblock {
+  padding-block: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.articles-index .titleblock h1 {
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------- wide tables in articles */
+/* Prose stays at --measure (68ch) for readability. Tables are scanned cell   */
+/* by cell rather than read in long sweeps, so they break out — but only to   */
+/* --measure-wide (90ch), not the full shell. Wide enough that the first      */
+/* column never wraps; narrow enough that the page keeps a coherent edge.     */
+
+:root {
+  --measure-wide: 90ch;
+}
+
+.articlebody .table--wide {
+  max-width: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 48rem) {
+  .articlebody .table--wide {
+    width: min(var(--measure-wide), calc(1120px - (2 * var(--gutter))), calc(100vw - (2 * var(--gutter))));
+  }
+
+  /* Shrink the first column to its content so short terms do not sit in a
+     large empty gap. width:1% is the standard way to ask a table cell for
+     its minimum content width. */
+  .articlebody .table--wide th:first-child,
+  .articlebody .table--wide td:first-child {
+    width: 1%;
+    white-space: nowrap;
+    padding-right: 2.25rem;
+  }
+}
+
+/* ------------------------------------------------------ tables on a phone */
+/* A multi-column table cannot be read at 390px. Each row becomes a small     */
+/* block: the term as a heading, the description beneath it. No sideways      */
+/* scrolling, nothing crushed.                                                */
+
+@media (max-width: 47.99rem) {
+  .articlebody .table--wide,
+  .articlebody .table--wide table,
+  .articlebody .table--wide tbody,
+  .articlebody .table--wide tr,
+  .articlebody .table--wide td {
+    display: block;
+    width: auto;
+    max-width: none;
+  }
+
+  .articlebody .table--wide {
+    overflow-x: visible;
+  }
+
+  .articlebody .table--wide thead {
+    display: none;
+  }
+
+  .articlebody .table--wide tr {
+    padding: 0.95rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .articlebody .table--wide tr:first-child {
+    border-top: 1px solid var(--navy);
+  }
+
+  .articlebody .table--wide td {
+    padding: 0;
+    border: 0;
+  }
+
+  .articlebody .table--wide td:first-child {
+    white-space: normal;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+}
