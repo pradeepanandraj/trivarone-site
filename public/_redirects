@@ -1,0 +1,15 @@
+# Old hand-coded .html paths -> clean Astro URLs. 301, permanent.
+/index.html                                        /                                                  301
+/services.html                                     /services                                          301
+/about.html                                        /about                                             301
+/check.html                                        /check                                             301
+/contact.html                                      /contact                                           301
+/faq.html                                          /faq                                               301
+/privacy.html                                      /privacy                                           301
+/how-practices-get-found.html                      /how-practices-get-found                           301
+
+/articles/index.html                               /articles                                          301
+/articles/rank-for-name-not-category.html          /articles/rank-for-name-not-category                301
+/articles/robots-txt-ai-crawlers.html              /articles/robots-txt-ai-crawlers                    301
+/articles/ai-seo-terminology.html                  /articles/ai-seo-terminology                        301
+/articles/health-practice-ai-search-two-searches.html  /articles/health-practice-ai-search-two-searches  301

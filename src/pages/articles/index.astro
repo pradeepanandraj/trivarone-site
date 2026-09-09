@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import '../../styles/article.css';
+
+const SITE = 'https://trivarone.com';
+
+// Newest first, so publishing an article is the only step required.
+const articles = (await getCollection('articles')).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const iso = (date: Date) => date.toISOString().slice(0, 10);
+const longDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-AU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Articles — Trivarone',
+  url: `${SITE}/articles`,
+  description: 'Writing on AI search, local search and being found online.',
+  isPartOf: { '@id': `${SITE}/#organisation` },
+  inLanguage: 'en-AU',
+};
+---
+<Base
+  title="Articles — Trivarone"
+  description="Plain-English writing on AI search, local search and being found online, for healthcare practices, allied health practitioners and NDIS providers."
+  path="/articles"
+  ogTitle="Articles — Trivarone"
+  ogDescription="Writing on AI search and being found online, for healthcare practices, allied health practitioners and NDIS providers."
+  bodyClass="articles-index"
+>
+  <script
+    type="application/ld+json"
+    slot="head"
+    set:html={JSON.stringify(schema)}
+  />
+
+  <section class="titleblock">
+    <div class="shell">
+      <h1>Articles</h1>
+      <p class="standfirst">
+        Plain-English notes on the questions business owners actually ask.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <ul class="postlist">
+        {articles.map((a) => (
+          <li>
+            <p class="postmeta">
+              <time datetime={iso(a.data.pubDate)}>{longDate(a.data.pubDate)}</time>
+              <span>·</span> {a.data.eyebrow}
+            </p>
+            <h3><a href={`/articles/${a.id}`}>{a.data.indexTitle}</a></h3>
+            <p>{a.data.blurb}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band band--navy">
+    <div class="shell">
+      <p class="section-label">Next step</p>
+      <h2>A conversation costs nothing and commits you to nothing.</h2>
+      <div class="prose">
+        <p class="lede">
+          If something here matches a problem you recognise, send a short message
+          describing it. If Trivarone is not the right answer, you will be told that
+          plainly.
+        </p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,149 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from './Base.astro';
+import '../styles/article.css';
+
+interface Props {
+  entry: CollectionEntry<'articles'>;
+}
+
+const { entry } = Astro.props;
+const d = entry.data;
+const SITE = 'https://trivarone.com';
+const path = `/articles/${entry.id}`;
+const url = `${SITE}${path}`;
+
+const iso = (date: Date) => date.toISOString().slice(0, 10);
+const longDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-AU', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.headline,
+  description: d.description,
+  datePublished: iso(d.pubDate),
+  dateModified: iso(d.updatedDate ?? d.pubDate),
+  author: {
+    '@type': 'Person',
+    '@id': `${SITE}/about#pradeep`,
+    name: 'Pradeep Anandraj',
+  },
+  publisher: { '@id': `${SITE}/#organisation` },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  isPartOf: { '@id': `${SITE}/#organisation` },
+  inLanguage: 'en-AU',
+};
+
+// Emitted only when the article actually carries Q&A pairs, so the structured
+// data can never claim questions the prose does not answer.
+const faqSchema = d.faq && {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: d.faq.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+
+// "Also in this series" — every other article, newest first.
+const others = (await getCollection('articles'))
+  .filter((a) => a.id !== entry.id)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+<Base
+  title={d.metaTitle}
+  description={d.description}
+  path={path}
+  ogTitle={d.headline}
+  ogType="article"
+>
+  <Fragment slot="head">
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(articleSchema)}
+    />
+    {faqSchema && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(faqSchema)}
+      />
+    )}
+  </Fragment>
+
+  <section class="titleblock">
+    <div class="shell">
+      <p class="eyebrow">{d.eyebrow}</p>
+      <h1 set:html={d.title} />
+      <p class="articlemeta">
+        <a href="/about">Pradeep Anandraj</a>
+        <span>·</span> <time datetime={iso(d.pubDate)}>{longDate(d.pubDate)}</time>
+        {d.updatedDate && (
+          <Fragment>
+            <span>·</span> Updated <time datetime={iso(d.updatedDate)}>{longDate(d.updatedDate)}</time>
+          </Fragment>
+        )}
+        <span>·</span> {d.readingTime}
+      </p>
+      <p class="standfirst" set:html={d.standfirst} />
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="articlebody">
+        <slot />
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--rule">
+    <div class="shell">
+      <p class="section-label">Also in this series</p>
+      <h2>How health practices get found online</h2>
+      <div class="prose">
+        <p>
+          This article is one part of a larger subject. The
+          <a href="/how-practices-get-found">overview page</a> sets out where
+          patients and participants actually look now, and what each of those places
+          reads before deciding what to show them.
+        </p>
+        <ul class="plainlist">
+          {others.map((a) => (
+            <li><a href={`/articles/${a.id}`}>{a.data.shortTitle}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--navy">
+    <div class="shell">
+      <p class="section-label">If this raised a question</p>
+      <h2>A conversation costs nothing and commits you to nothing.</h2>
+      <div class="prose">
+        <p class="lede">
+          Trivarone checks how a practice appears when someone searches for what it does,
+          across Google, ChatGPT, Gemini and Perplexity, and then fixes what is worth
+          fixing.
+        </p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/check">Get the free discoverability check</a>
+        <a class="btn btn--ghost" href="/contact">Start a conversation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <p class="backlink"><a href="/articles">&larr; All articles</a></p>
+    </div>
+  </section>
+</Base>

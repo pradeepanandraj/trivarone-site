@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+import EnquiryForm from '../components/EnquiryForm.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "url": "https://trivarone.com/contact",
+  "isPartOf": {
+    "@id": "https://trivarone.com/#organisation"
+  },
+  "mainEntity": {
+    "@id": "https://trivarone.com/#organisation",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer enquiries",
+      "email": "pradeep@trivarone.com",
+      "availableLanguage": [
+        "English"
+      ],
+      "areaServed": "Australia"
+    }
+  }
+};
+---
+<Base
+  title="Contact — Trivarone"
+  description="Contact Trivarone about SEO, local SEO and AI SEO for a healthcare, allied health or NDIS practice. Brisbane, working across Australia."
+  path="/contact"
+  ogDescription="Send a short message describing the problem. A reply usually follows within one business day."
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
+
+  <EnquiryForm formId="enquiry" successId="formsuccess">
+  <section class="titleblock">
+    <div class="shell">
+      <p class="eyebrow">Contact</p>
+      <h1>Describe the problem. That is <em>enough</em> to start.</h1>
+      <p class="standfirst">
+        Send a few sentences about the business and what is getting in the way. Email
+        directly, or use the form further down — whichever suits you. There is no call to
+        book before anyone will speak to you.
+      </p>
+      <div class="actions">
+        <a class="btn btn--lower" href="mailto:pradeep@trivarone.com?subject=Enquiry%20via%20trivarone.com">Email pradeep@trivarone.com</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <p class="section-label">What happens next</p>
+      <h2>Three replies, and you will know where you stand.</h2>
+
+      <ol class="findings">
+        <li class="finding">
+          <span class="finding__no">01</span>
+          <div class="finding__body">
+            <h3>A reply, usually within one business day</h3>
+            <p>
+              Confirming whether this is work Trivarone can help with. If it is not, you
+              will be told directly rather than sold something adjacent.
+            </p>
+          </div>
+        </li>
+        <li class="finding">
+          <span class="finding__no">02</span>
+          <div class="finding__body">
+            <h3>A short conversation</h3>
+            <p>
+              Thirty minutes by phone or video to understand the business properly. No
+              preparation needed and nothing to bring.
+            </p>
+          </div>
+        </li>
+        <li class="finding">
+          <span class="finding__no">03</span>
+          <div class="finding__body">
+            <h3>A written scope and quote</h3>
+            <p>
+              Setting out exactly what would be done and what it costs, so you can
+              decide with the whole picture in front of you.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <dl class="metagrid">
+        <div>
+          <dt>Email</dt>
+          <dd><a href="mailto:pradeep@trivarone.com">pradeep@trivarone.com</a></dd>
+        </div>
+        <div>
+          <dt>Website</dt>
+          <dd><a href="https://trivarone.com/">trivarone.com</a></dd>
+        </div>
+        <div>
+          <dt>Based in</dt>
+          <dd>Brisbane, Australia</dd>
+        </div>
+        <div>
+          <dt>Clients located</dt>
+          <dd>Anywhere. All work is delivered digitally</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+
+  <section class="band band--rule">
+    <div class="shell">
+      <p class="section-label">Or use the form</p>
+      <h2>Send a message without leaving the page.</h2>
+      <div class="prose">
+        <p>
+          Everything here goes straight to pradeep@trivarone.com. Nothing is stored
+          anywhere else and no mailing list is involved.
+        </p>
+      </div>
+
+      <div class="formsuccess" id="formsuccess" hidden>
+        <p class="formsuccess__title">Message sent.</p>
+        <p>Thank you. A reply usually follows within one business day.</p>
+      </div>
+
+      <form class="enquiry" id="enquiry" action="https://formspree.io/f/xgawweeb" method="POST">
+
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="field">
+          <label for="business">Business name <span class="optional">optional</span></label>
+          <input type="text" id="business" name="business" autocomplete="organization">
+        </div>
+
+        <div class="field">
+          <label for="message">What is getting in the way?</label>
+          <textarea id="message" name="message" rows="7" required
+            placeholder="A few sentences about the practice and what you would like looked at."></textarea>
+        </div>
+
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot">
+        <input type="hidden" name="_subject" value="Enquiry via trivarone.com">
+
+        <div class="actions">
+          <button class="btn" type="submit">Send message</button>
+        </div>
+
+        <p class="formnote">
+          A reply usually follows within one business day. Your details are handled in
+          accordance with the <a href="/privacy">privacy policy</a>.
+        </p>
+
+      </form>
+    </div>
+  </section>
+
+  <section class="band band--navy">
+    <div class="shell">
+      <p class="section-label">Before you write</p>
+      <h2>Three things worth including.</h2>
+      <div class="prose">
+        <p class="lede">
+          What the practice does and the suburbs it serves. The one thing you would most
+          want to be found for, in the words a patient or participant would use. And your
+          website address, if you have one. That is enough to run the first search before
+          replying, so the answer is about your practice rather than about the service.
+        </p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="mailto:pradeep@trivarone.com?subject=Enquiry%20via%20trivarone.com">Write to Trivarone</a>
+      </div>
+    </div>
+  </section>
+  </EnquiryForm>
+</Base>

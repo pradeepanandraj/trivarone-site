@@ -1,0 +1,181 @@
+---
+import Base from '../layouts/Base.astro';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://trivarone.com/about#pradeep",
+  "name": "Pradeep Anandraj",
+  "jobTitle": "Founder",
+  "email": "pradeep@trivarone.com",
+  "url": "https://trivarone.com/about",
+  "worksFor": {
+    "@id": "https://trivarone.com/#organisation"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/pradeepanandraj"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Brisbane",
+    "addressRegion": "QLD",
+    "addressCountry": "AU"
+  },
+  "knowsAbout": [
+    "Oracle database administration",
+    "Business intelligence",
+    "AI discoverability",
+    "Bookkeeping and accounting",
+    "Content production for regulated professions"
+  ],
+  "description": "Founder of Trivarone. Eight years as an Oracle database administrator, followed by qualifications in bookkeeping and accounting, and now working in AI search and discoverability for healthcare, allied health and NDIS providers."
+};
+---
+<Base
+  title="About — Trivarone and Pradeep Anandraj"
+  description="Trivarone was founded by Pradeep Anandraj, an Oracle database administrator of eight years now working in AI search and discoverability for healthcare."
+  path="/about"
+  ogDescription="Eight years in database administration, a background in bookkeeping and accounting, and a practice built around SEO and AI SEO for healthcare, allied health and NDIS providers."
+  ogType="profile"
+>
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
+
+  <section class="titleblock">
+    <div class="shell">
+      <p class="eyebrow">About</p>
+      <h1>Trivarone is one person doing the work <em>properly</em>.</h1>
+      <p class="standfirst">
+        The work is agency work. What is different is that one person does all of it, so
+        there is no account manager between you and whoever is actually searching, writing
+        and correcting.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <p class="section-label">The founder</p>
+      <h2>Pradeep Anandraj</h2>
+      <div class="prose">
+        <p class="lede">
+          I spent eight years as an Oracle database administrator. That work taught me one
+          thing that turned out to matter more than the technology itself: a business runs
+          on how well its information is organised, and most of the difficulty people
+          experience comes from information that is scattered, inconsistent, or missing
+          entirely.
+        </p>
+        <p>
+          I later qualified in bookkeeping and accounting, and held a mortgage broker
+          licence. That period put me on the other side of the desk from small business
+          owners dealing with compliance, paperwork and administration — the parts of
+          running a business that nobody starts a business to do.
+        </p>
+        <p>
+          Trivarone came out of both. Being found is an information problem before it is a
+          marketing problem. A practice that is described inconsistently across its
+          listings, its website and its profiles is difficult for a search engine to place
+          and difficult for an AI system to recommend. Fixing that is patient, unglamorous
+          work, and it is the work I do.
+        </p>
+        <p>
+          Most of my work is with practitioners in private practice and with NDIS
+          providers. What I bring to it is not clinical knowledge — I have none, and I do
+          not pretend otherwise. It is the habit of checking which rules apply before
+          writing, and of telling a practice plainly when something is not worth doing.
+        </p>
+      </div>
+
+      <dl class="metagrid">
+        <div>
+          <dt>Background</dt>
+          <dd>Eight years, Oracle database administration</dd>
+        </div>
+        <div>
+          <dt>Also qualified in</dt>
+          <dd>Bookkeeping and accounting</dd>
+        </div>
+        <div>
+          <dt>Based in</dt>
+          <dd>Brisbane, Australia</dd>
+        </div>
+        <div>
+          <dt>Working with clients in</dt>
+          <dd>Australia, India and beyond</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band band--rule">
+    <div class="shell">
+      <p class="section-label">How Trivarone works</p>
+      <h2>Four commitments, kept on every engagement.</h2>
+
+      <ol class="findings">
+        <li class="finding">
+          <span class="finding__no">01</span>
+          <div class="finding__body">
+            <span class="tag">The check comes before the recommendation</span>
+            <p>
+              Nothing is recommended before the practice has been searched. The findings
+              decide the work, so no two engagements look the same and there is no standard
+              package waiting to be sold.
+            </p>
+          </div>
+        </li>
+        <li class="finding">
+          <span class="finding__no">02</span>
+          <div class="finding__body">
+            <span class="tag">Regulator confirmed, never assumed</span>
+            <p>
+              Which advertising rules apply is established before a word is written. A
+              physiotherapist, a dentist and a support coordinator answer to different
+              bodies, and the restrictions differ. Getting it wrong creates exposure for the
+              practice, not for Trivarone, so it is checked rather than guessed.
+            </p>
+          </div>
+        </li>
+        <li class="finding">
+          <span class="finding__no">03</span>
+          <div class="finding__body">
+            <span class="tag">Observed, not asserted</span>
+            <p>
+              Findings state which query was run, on which system, and on what date. AI
+              answers vary between sessions, so a single screenshot proves very little.
+              Where something is uncertain it is written as uncertain.
+            </p>
+          </div>
+        </li>
+        <li class="finding">
+          <span class="finding__no">04</span>
+          <div class="finding__body">
+            <span class="tag">What not to spend money on</span>
+            <p>
+              Every report says which findings are not worth acting on, and which causes
+              cannot be bought at any price — how far you are from the person searching, and
+              how long the practice has existed. It is usually the most useful section, and
+              the one there is no commercial reason to write.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band band--navy">
+    <div class="shell">
+      <p class="section-label">Next step</p>
+      <h2>A conversation costs nothing and commits you to nothing.</h2>
+      <div class="prose">
+        <p class="lede">
+          If something here matches a problem you recognise, send a short message
+          describing it. If Trivarone is not the right answer, you will be told that
+          plainly.
+        </p>
+      </div>
+      <div class="actions">
+        <a class="btn" href="/contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</Base>

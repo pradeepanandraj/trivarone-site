@@ -1,0 +1,81 @@
+---
+import Masthead from '../components/Masthead.astro';
+import Colophon from '../components/Colophon.astro';
+import '../styles/style.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Clean path, e.g. "/services" or "/" — canonical and og:url are built from this. */
+  path: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogType?: string;
+  bodyClass?: string;
+}
+
+const {
+  title,
+  description,
+  path,
+  ogTitle = title,
+  ogDescription = description,
+  ogType = 'website',
+  bodyClass,
+} = Astro.props;
+
+const SITE = 'https://trivarone.com';
+const canonical = path === '/' ? `${SITE}/` : `${SITE}${path}`;
+const ogImage = `${SITE}/og-image.png`;
+---
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonical}>
+
+<meta property="og:type" content={ogType}>
+<meta property="og:title" content={ogTitle}>
+<meta property="og:description" content={ogDescription}>
+<meta property="og:url" content={canonical}>
+<meta property="og:image" content={ogImage}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trivarone — SEO and AI SEO for Healthcare, Allied Health and NDIS">
+<meta property="og:site_name" content="Trivarone">
+<meta property="og:locale" content="en_AU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content={ogImage}>
+
+<link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
+<slot name="head" />
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ydn9n3vmqn");
+</script>
+</head>
+<body class={bodyClass}>
+<a class="skip" href="#main">Skip to content</a>
+
+<Masthead />
+
+<main id="main">
+  <slot />
+</main>
+
+<Colophon />
+</body>
+</html>

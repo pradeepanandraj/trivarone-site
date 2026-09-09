@@ -1,0 +1,261 @@
+---
+title: "Can ChatGPT read your website? The thirty-second <em>check</em>."
+metaTitle: "Can ChatGPT read your website? A thirty-second check"
+headline: "Can ChatGPT read your website? The thirty-second check most business owners have never done"
+shortTitle: "Can ChatGPT read your website?"
+description: "One text file decides whether AI search systems can read your website. Some hosting setups block them by default. Here is how to check yours in thirty seconds."
+indexTitle: "Can ChatGPT read your website? The thirty-second check most business owners have never done"
+blurb: "A single text file decides whether AI search systems can read your site at all. Some hosting setups block them by default, and nobody tells the owner."
+standfirst: "One plain text file decides whether AI search systems are permitted to read your website at all. Some hosting configurations block them by default, and the business owner is never told."
+eyebrow: "AI discoverability"
+pubDate: 2026-08-05
+readingTime: "5 minute read"
+faq:
+  - question: "What is a robots.txt file?"
+    answer: "A robots.txt file is a plain text instruction sheet that sits at the root of a website and tells automated systems which parts of the site they are permitted to read. It is not a security measure and it does not hide anything from people, but well-behaved automated systems check it before reading a site and follow what it says."
+  - question: "Which crawlers matter for AI search?"
+    answer: "Four matter most: OAI-SearchBot for ChatGPT, Claude-SearchBot for Claude, PerplexityBot for Perplexity, and Googlebot for Google AI Overviews and AI Mode. If any of these is disallowed, that system cannot read the site when answering a question."
+  - question: "What is the difference between a search crawler and a training crawler?"
+    answer: "A search crawler reads a website at the moment someone asks a question, so it can include the site in an answer. A training crawler collects text used to build future versions of a model. Blocking training while allowing search is a reasonable and deliberate position, and the two decisions are separate."
+  - question: "What if my website has no robots.txt file at all?"
+    answer: "If no robots.txt file exists, nothing is blocked. An absent file is not a problem in itself. It simply means no instructions have been given and every crawler is free to read the site."
+---
+
+        <p class="lede">
+          Type your own web address into a browser, add <code>/robots.txt</code> to the
+          end, and press return. What comes back decides whether ChatGPT, Claude,
+          Perplexity and Google are allowed to read your site when somebody asks them for
+          a recommendation. It takes thirty seconds and most business owners have never
+          done it.
+        </p>
+
+        <h2>What is a robots.txt file?</h2>
+
+        <p>
+          A robots.txt file is a plain text instruction sheet that sits at the root of a
+          website and tells automated systems which parts of the site they are permitted
+          to read. Every website can have one. Many have one without the owner knowing.
+        </p>
+
+        <p>
+          It is not a security measure and it hides nothing from people. A determined
+          person can ignore it entirely. But the automated systems that matter here —
+          the ones belonging to Google, OpenAI, Anthropic and Perplexity — check it
+          before reading a site and follow what it says.
+        </p>
+
+        <p>
+          The file is short and readable. A typical entry looks like this:
+        </p>
+
+        <pre><code>User-agent: OAI-SearchBot
+Allow: /</code></pre>
+
+        <p>
+          The first line names the system. The second line states what it may read.
+          A forward slash means the whole site. The word to watch for is
+          <code>Disallow</code>.
+        </p>
+
+        <h2>Which crawlers matter for AI search?</h2>
+
+        <p>
+          Four matter most. If any of these carries a <code>Disallow</code> instruction,
+          that system cannot read your website when it answers a question.
+        </p>
+
+        <table>
+          <thead>
+            <tr><th>Crawler</th><th>Belongs to</th><th>What it affects</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>OAI-SearchBot</code></td>
+              <td>OpenAI</td>
+              <td>Whether ChatGPT can read your site when searching</td>
+            </tr>
+            <tr>
+              <td><code>Claude-SearchBot</code></td>
+              <td>Anthropic</td>
+              <td>Whether Claude can read your site when searching</td>
+            </tr>
+            <tr>
+              <td><code>PerplexityBot</code></td>
+              <td>Perplexity</td>
+              <td>Whether Perplexity can cite your site</td>
+            </tr>
+            <tr>
+              <td><code>Googlebot</code></td>
+              <td>Google</td>
+              <td>Ordinary search, AI Overviews and AI Mode</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          There is one more line worth reading carefully. The asterisk in
+          <code>User-agent: *</code> means every system not named individually. If that
+          entry is followed by <code>Disallow: /</code>, the entire site is closed to
+          everything.
+        </p>
+
+        <h2>What does a blocked crawler actually mean?</h2>
+
+        <p>
+          It means that when somebody asks that system for a recommendation, your website
+          is not among the things it can look at. Not your services, not your
+          qualifications, not your suburb, not your opening hours.
+        </p>
+
+        <p>
+          This is worth sitting with, because it is easy to underestimate. A practice can
+          have a clear, well-written website explaining exactly what it does and who it
+          treats, and none of that is available to a system that has been told not to
+          read it. The work was done. The door was closed.
+        </p>
+
+        <blockquote>
+          <p>Everything on your own website has a ceiling, and a blocked crawler sets that ceiling at zero.</p>
+        </blockquote>
+
+        <h2>Why would my website block them without me knowing?</h2>
+
+        <p>
+          Because the decision is often made by software rather than by a person. Several
+          hosting platforms, security plugins and content management systems add
+          restrictions to robots.txt by default, and the reasoning is not unreasonable —
+          some of it comes from a period when businesses were actively encouraged to
+          block AI systems.
+        </p>
+
+        <p>
+          What tends to happen in practice is that a setting labelled something like
+          "block AI bots" gets switched on once, often by a web developer acting on a
+          general instruction, and nobody revisits it. The distinction between a system
+          that reads your site to recommend you and a system that reads your site to
+          train a model is not usually explained at that moment.
+        </p>
+
+        <h2>What is the difference between a search crawler and a training crawler?</h2>
+
+        <p>
+          A search crawler reads a website at the moment someone asks a question, so it
+          can include the site in an answer. A training crawler collects text used to
+          build future versions of a model. They are different systems with different
+          names, and blocking one does not block the other.
+        </p>
+
+        <table>
+          <thead>
+            <tr><th>Search crawlers</th><th>Training crawlers</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>OAI-SearchBot</code></td>
+              <td><code>GPTBot</code></td>
+            </tr>
+            <tr>
+              <td><code>Claude-SearchBot</code></td>
+              <td><code>ClaudeBot</code></td>
+            </tr>
+            <tr>
+              <td><code>PerplexityBot</code></td>
+              <td><code>CCBot</code></td>
+            </tr>
+            <tr>
+              <td><code>Googlebot</code></td>
+              <td><code>Google-Extended</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>
+          Allowing search while blocking training is a coherent and defensible position.
+          A business may reasonably want to be recommended without contributing its
+          writing to a training set. The point is that this should be a decision somebody
+          made, rather than a default somebody inherited.
+        </p>
+
+        <h2>What should my robots.txt say?</h2>
+
+        <p>
+          For most small businesses that want to be found, the answer is that the four
+          search crawlers should be allowed. The simplest version of that is a single
+          wildcard entry permitting everything, which covers them all:
+        </p>
+
+        <pre><code>{`User-agent: *
+Allow: /
+
+Sitemap: https://yourdomain.com/sitemap.xml`}</code></pre>
+
+        <p>
+          Naming the crawlers individually achieves the same outcome and makes the
+          decision visible to anyone who looks. Either works. What matters is that
+          nothing important is disallowed.
+        </p>
+
+        <p>
+          The final line points to your sitemap, which is a separate file listing your
+          pages. It is not required, but it helps.
+        </p>
+
+        <h2>What if my website has no robots.txt file at all?</h2>
+
+        <p>
+          If no robots.txt file exists, nothing is blocked. An absent file is not a
+          problem in itself — it simply means no instructions have been given, and every
+          crawler is free to read the site.
+        </p>
+
+        <p>
+          You will usually see a "404 not found" page or an error message. That is a
+          perfectly acceptable result.
+        </p>
+
+        <h2>What if I find something blocked?</h2>
+
+        <p>
+          Send the file to whoever manages your website and ask why that instruction is
+          there. It is a two-line change to remove, and there may be a good reason for
+          it that is worth hearing before anything is altered.
+        </p>
+
+        <p>
+          Do not edit the file yourself unless you are confident. Robots.txt is
+          unforgiving about spelling and punctuation, and a mistake in it can close more
+          than you intended.
+        </p>
+
+        <h2>Is this the only thing that matters?</h2>
+
+        <p>
+          No, and it would be misleading to suggest otherwise. An open robots.txt file
+          does not make a business appear in AI answers. It only means the door is not
+          locked.
+        </p>
+
+        <p>
+          Whether a business is actually named in an answer depends on a great deal else
+          — whether the site explains clearly what the business does and who it is for,
+          whether the same description appears consistently across every platform where
+          the business is listed, whether other websites mention it, and whether there are
+          reviews. Most of the mentions AI systems make are drawn from sources the
+          business does not own at all.
+        </p>
+
+        <p>
+          But those things are slow, and this one is fast. Thirty seconds, no cost, and a
+          definite answer. It is a reasonable place to begin.
+        </p>
+
+        <p>
+          Related: <a href="/articles/rank-for-name-not-category">why your business ranks for its own name but not for what you sell</a> — the same problem seen from the other side.
+        </p>
+
+        <p class="sourcenote">
+          Crawler names verified against the published documentation of OpenAI, Anthropic,
+          Perplexity and Google on 4 August 2026. These names are set by the companies
+          that operate them and do change. Verify current names before relying on any list,
+          including this one.
+        </p>

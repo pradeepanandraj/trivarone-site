@@ -1,0 +1,31 @@
+---
+const links = [
+  { href: '/', label: 'Overview' },
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/articles', label: 'Articles' },
+  { href: '/faq', label: 'Questions' },
+  { href: '/contact', label: 'Contact' },
+];
+
+// Normalise the current path so /articles/some-slug marks the Articles tab,
+// and a trailing slash never changes the match.
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isCurrent = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(href + '/');
+---
+<header class="masthead">
+  <div class="shell masthead__inner">
+    <a class="wordmark" href="/">
+      Trivarone
+      <span class="wordmark__tag">AI SEO — healthcare, allied health and NDIS</span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      {links.map((link) => (
+        <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
