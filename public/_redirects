@@ -13,3 +13,6 @@
 /articles/robots-txt-ai-crawlers.html              /articles/robots-txt-ai-crawlers                    301
 /articles/ai-seo-terminology.html                  /articles/ai-seo-terminology                        301
 /articles/health-practice-ai-search-two-searches.html  /articles/health-practice-ai-search-two-searches  301
+
+# The hand-maintained sitemap.xml is now generated as sitemap-index.xml.
+/sitemap.xml                                       /sitemap-index.xml                                 301
