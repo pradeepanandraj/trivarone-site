@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import '../../styles/article.css';
 
-const SITE = 'https://trivarone.com';
+const SITE = 'https://www.trivarone.com';
 
 // Newest first, so publishing an article is the only step required.
 const articles = (await getCollection('articles')).sort(
