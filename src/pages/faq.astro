@@ -17,7 +17,7 @@ const schema = {
       "name": "What does an SEO and AI SEO discoverability check involve?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Two searches are run: one for the practice name, and one for the service without the name attached. Google alone is checked four ways, because it answers the same question differently in ordinary results, in Google Maps, in an AI Overview above the results, and in AI Mode. These are separate systems with separate retrieval, so a practice can appear in one and be missing from the others. Beyond Google, the check covers ChatGPT, Gemini, Perplexity and Microsoft Copilot. Gemini is not the same as Google AI Mode. AI Mode sits inside Google Search and draws on Google's index. Gemini is a separate app, also used across Android and Google Workspace, and it can return a different answer to the same question. Claude and Grok are not currently included. Both are capable systems, but very few people use them to find a local practitioner, and listing systems that are not genuinely checked would overstate the work. If that changes, they will be added. The initial check is free and takes the form of a short written summary."
+        "text": "Two searches are run: one for the practice name, and one for the service without the name attached. Five places are checked: Google's ordinary results, Google's AI Mode, ChatGPT, Gemini and Perplexity. These are separate systems with separate retrieval, so a practice can appear in one and be missing from the others. Where the practice sits in Google Maps is checked alongside them. Gemini is not the same as Google AI Mode, which is why both are checked. AI Mode sits inside Google Search and draws on Google's index. Gemini is a separate app, also used across Android and Google Workspace, and it can return a different answer to the same question. Google's AI Overviews are not included, because they appear inconsistently — sometimes above the results, sometimes partway down the page, sometimes not at all for the same query — so there is no reliable way to check them. Claude, Grok and Microsoft Copilot are not included either, because none of them can be checked without signing in, and a check that runs from inside an account is not a like-for-like view of what a patient sees. If that changes, they will be added. The initial check is free and takes the form of a short written summary."
       }
     },
     {
@@ -152,26 +152,32 @@ const schema = {
             without the name attached.
           </p>
           <p class="qset__a">
-            Google alone is checked four ways, because it answers the same question
-            differently in ordinary results, in Google Maps, in an AI Overview above the
-            results, and in AI Mode. These are separate systems with separate retrieval, so
-            a practice can appear in one and be missing from the others.
+            Five places are checked: Google's ordinary results, Google's AI Mode, ChatGPT,
+            Gemini and Perplexity. These are separate systems with separate retrieval, so a
+            practice can appear in one and be missing from the others. Where the practice
+            sits in Google Maps is checked alongside them.
           </p>
           <p class="qset__a">
-            Beyond Google, the check covers ChatGPT, Gemini, Perplexity and Microsoft
-            Copilot. Gemini is not the same thing as Google AI Mode — AI Mode sits inside
-            Google Search and draws on Google's index, while Gemini is a separate app, also
-            used across Android and Google Workspace, and it can return a different answer
-            to the same question.
+            Gemini is not the same thing as Google AI Mode, which is why both are checked.
+            AI Mode sits inside Google Search and draws on Google's index. Gemini is a
+            separate app, also used across Android and Google Workspace, and it can return
+            a different answer to the same question.
           </p>
           <p class="qset__a">
-            Claude and Grok are not currently included. Both are capable systems, but very
-            few people use them to find a local practitioner, and listing systems that are
-            not genuinely checked would overstate the work. If that changes, they will be
-            added.
+            Google's AI Overviews are not included. They appear inconsistently — sometimes
+            above the results, sometimes partway down the page, sometimes not at all for
+            the same query — so there is no reliable way to check them, and reporting on
+            something that cannot be run the same way twice would not tell you anything you
+            could act on.
           </p>
           <p class="qset__a">
-            The result shows whether the business appears when somebody searches for what
+            Claude, Grok and Microsoft Copilot are not included either, because none of
+            them can be checked without signing in. A check that runs from inside an
+            account is not a like-for-like view of what a patient sees, so the result would
+            not mean what it appears to mean. If that changes, they will be added.
+          </p>
+          <p class="qset__a">
+            The result shows whether the practice appears when somebody searches for what
             it does, rather than only when they already know who it is. The initial check
             is free and takes the form of a short written summary.
           </p>

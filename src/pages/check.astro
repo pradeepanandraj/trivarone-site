@@ -9,7 +9,7 @@ const schema = {
   "name": "Search and AI Discoverability Check",
   "url": "https://www.trivarone.com/check/",
   "serviceType": "Search and AI discoverability assessment",
-  "description": "Two searches are run for a business across five places: Google, Google Maps, Google's AI Mode, ChatGPT and Perplexity. One search is for the business name. The other is for the service the business sells, without the name attached. The result is a short written summary showing whether the business appears when somebody searches for what it does.",
+  "description": "Two searches are run for a practice across five places: Google's ordinary results, Google's AI Mode, ChatGPT, Gemini and Perplexity, along with where the practice appears in Google Maps. One search is for the practice name. The other is for the service the practice offers, without the name attached. The result is a short written summary showing whether the practice appears when somebody searches for what it does.",
   "provider": {
     "@id": "https://www.trivarone.com/#organisation"
   },
@@ -19,7 +19,7 @@ const schema = {
   },
   "audience": {
     "@type": "Audience",
-    "audienceType": "Medical and allied health practices, NDIS providers, and small business owners in trades and services"
+    "audienceType": "Medical and allied health practices, independent practitioners in private practice, and NDIS providers"
   },
   "offers": {
     "@type": "Offer",
@@ -32,9 +32,9 @@ const schema = {
 ---
 <Base
   title="The Free Discoverability Check — Trivarone"
-  description="A free written check showing whether your business appears when somebody searches for what you do, rather than only when they know your name already."
+  description="A free written check showing whether your health or allied health practice appears when somebody searches for what you do, not just for your name."
   path="/check"
-  ogDescription="Does your business appear when somebody searches for what you do? Two searches, five places, one short written answer. Free."
+  ogDescription="Does your practice appear when somebody searches for what you do? Two searches, five places, one short written answer. Free."
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
 
@@ -42,7 +42,7 @@ const schema = {
   <section class="titleblock">
     <div class="shell">
       <p class="eyebrow">The free check</p>
-      <h1>Search your business name. Then search <em>what you sell</em>.</h1>
+      <h1>Search your practice name. Then search <em>what you do</em>.</h1>
       <p class="standfirst">
         If the first works and the second does not, you have the most common
         problem I see. This check tells you which of the two you have, in about
@@ -62,15 +62,16 @@ const schema = {
 
       <div class="prose">
         <p class="lede">
-          Two searches are run for your business across five places: Google,
-          Google Maps, Google's AI Mode, ChatGPT and Perplexity.
+          Two searches are run for your practice across five places: Google's
+          ordinary results, Google's AI Mode, ChatGPT, Gemini and Perplexity.
+          Where you appear in Google Maps is checked alongside them.
         </p>
         <p>
-          The first is for your business name. The second is for the service you
-          sell, with your name left out entirely.
+          The first is for your practice name. The second is for the service you
+          offer, with your name left out entirely.
         </p>
         <p>
-          Almost every business passes the first. The second is where the answer
+          Almost every practice passes the first. The second is where the answer
           is, because that is the search a person makes when they need what you
           do but do not yet know who you are.
         </p>
@@ -80,15 +81,15 @@ const schema = {
         <li class="outcome">
           <h3>Whether you appear at all</h3>
           <p>
-            Across all five surfaces, for your own category. Some businesses
+            Across all five surfaces, for your own category. Some practices
             appear in one and not the other four. Some appear in none.
           </p>
         </li>
         <li class="outcome">
           <h3>Who appears instead of you</h3>
           <p>
-            Named. Not a count, not a percentage — the actual businesses being
-            put in front of the person who was looking for what you sell.
+            Named. Not a count, not a percentage — the actual practices being
+            put in front of the person who was looking for what you do.
           </p>
         </li>
         <li class="outcome">
@@ -117,7 +118,7 @@ const schema = {
 
       <div class="prose">
         <p>
-          Your business name, your website, and the service you would most want
+          Your practice name, your website, and the service you would most want
           to be found for. That is the whole intake. No form of twenty questions,
           no discovery call, no access to any of your accounts.
         </p>
@@ -223,7 +224,7 @@ const schema = {
       <form class="enquiry" id="checkform" action="https://formspree.io/f/xgawweeb" method="POST">
 
         <div class="field">
-          <label for="cf-business">Business name</label>
+          <label for="cf-business">Practice name</label>
           <input type="text" id="cf-business" name="business" required autocomplete="organization">
         </div>
 
@@ -236,13 +237,13 @@ const schema = {
         <div class="field">
           <label for="cf-service">The one service you would most want to be found for</label>
           <input type="text" id="cf-service" name="service" required
-            placeholder="For example: shoulder rehabilitation, or concrete pumping">
+            placeholder="For example: shoulder rehabilitation, or dental implants">
         </div>
 
         <div class="field">
           <label for="cf-suburb">Suburb or area you work in</label>
           <input type="text" id="cf-suburb" name="suburb" required
-            placeholder="The area a customer would search alongside the service">
+            placeholder="The area a patient would search alongside the service">
         </div>
 
         <div class="field">
@@ -284,7 +285,7 @@ const schema = {
       <h2>Thirty seconds of your time. A few days of mine.</h2>
       <div class="prose">
         <p class="lede">
-          Send your business name, your website, and the one service you would
+          Send your practice name, your website, and the one service you would
           most want to be found for. That is everything needed to begin.
         </p>
       </div>
