@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Page not found — Trivarone"
+  description="That page does not exist on trivarone.com. Links back to the homepage and the articles index."
+  path="/404"
+>
+  <meta slot="head" name="robots" content="noindex, follow">
+
+  <section class="titleblock">
+    <div class="shell">
+      <p class="eyebrow">404</p>
+      <h1>That page was not found</h1>
+      <p class="standfirst">
+        There is nothing at this address. The page may have been moved or renamed,
+        or the link that brought you here may have a typo in it.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="shell">
+      <div class="actions">
+        <a class="btn" href="/">Go to the homepage</a>
+        <a class="btn btn--ghost" href="/articles/">Read the articles</a>
+      </div>
+    </div>
+  </section>
+</Base>
