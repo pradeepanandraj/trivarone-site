@@ -6,7 +6,9 @@ import '../styles/style.css';
 interface Props {
   title: string;
   description: string;
-  /** Clean path, e.g. "/services" or "/" — canonical and og:url are built from this. */
+  /** Clean path, e.g. "/services" or "/" — canonical and og:url are built from this.
+   *  A trailing slash is added if absent: Cloudflare Pages serves directory-style
+   *  output and 308-redirects the non-slash form. */
   path: string;
   ogTitle?: string;
   ogDescription?: string;
@@ -25,7 +27,7 @@ const {
 } = Astro.props;
 
 const SITE = 'https://www.trivarone.com';
-const canonical = path === '/' ? `${SITE}/` : `${SITE}${path}`;
+const canonical = `${SITE}${path.endsWith('/') ? path : `${path}/`}`;
 const ogImage = `${SITE}/og-image.png`;
 ---
 <html lang="en-AU">

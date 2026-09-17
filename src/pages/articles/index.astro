@@ -23,7 +23,7 @@ const schema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
   name: 'Articles — Trivarone',
-  url: `${SITE}/articles`,
+  url: `${SITE}/articles/`,
   description: 'Writing on AI search, local search and being found online.',
   isPartOf: { '@id': `${SITE}/#organisation` },
   inLanguage: 'en-AU',
@@ -61,7 +61,7 @@ const schema = {
               <time datetime={iso(a.data.pubDate)}>{longDate(a.data.pubDate)}</time>
               <span>·</span> {a.data.eyebrow}
             </p>
-            <h3><a href={`/articles/${a.id}`}>{a.data.indexTitle}</a></h3>
+            <h3><a href={`/articles/${a.id}/`}>{a.data.indexTitle}</a></h3>
             <p>{a.data.blurb}</p>
           </li>
         ))}
@@ -81,7 +81,7 @@ const schema = {
         </p>
       </div>
       <div class="actions">
-        <a class="btn" href="/contact">Get in touch</a>
+        <a class="btn" href="/contact/">Get in touch</a>
       </div>
     </div>
   </section>

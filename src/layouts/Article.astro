@@ -10,7 +10,7 @@ interface Props {
 const { entry } = Astro.props;
 const d = entry.data;
 const SITE = 'https://www.trivarone.com';
-const path = `/articles/${entry.id}`;
+const path = `/articles/${entry.id}/`;
 const url = `${SITE}${path}`;
 
 const iso = (date: Date) => date.toISOString().slice(0, 10);
@@ -82,7 +82,7 @@ const others = (await getCollection('articles'))
       <p class="eyebrow">{d.eyebrow}</p>
       <h1 set:html={d.title} />
       <p class="articlemeta">
-        <a href="/about">Pradeep Anandraj</a>
+        <a href="/about/">Pradeep Anandraj</a>
         <span>·</span> <time datetime={iso(d.pubDate)}>{longDate(d.pubDate)}</time>
         {d.updatedDate && (
           <Fragment>
@@ -110,13 +110,13 @@ const others = (await getCollection('articles'))
       <div class="prose">
         <p>
           This article is one part of a larger subject. The
-          <a href="/how-practices-get-found">overview page</a> sets out where
+          <a href="/how-practices-get-found/">overview page</a> sets out where
           patients and participants actually look now, and what each of those places
           reads before deciding what to show them.
         </p>
         <ul class="plainlist">
           {others.map((a) => (
-            <li><a href={`/articles/${a.id}`}>{a.data.shortTitle}</a></li>
+            <li><a href={`/articles/${a.id}/`}>{a.data.shortTitle}</a></li>
           ))}
         </ul>
       </div>
@@ -135,15 +135,15 @@ const others = (await getCollection('articles'))
         </p>
       </div>
       <div class="actions">
-        <a class="btn" href="/check">Get the free discoverability check</a>
-        <a class="btn btn--ghost" href="/contact">Start a conversation</a>
+        <a class="btn" href="/check/">Get the free discoverability check</a>
+        <a class="btn btn--ghost" href="/contact/">Start a conversation</a>
       </div>
     </div>
   </section>
 
   <section class="band">
     <div class="shell">
-      <p class="backlink"><a href="/articles">&larr; All articles</a></p>
+      <p class="backlink"><a href="/articles/">&larr; All articles</a></p>
     </div>
   </section>
 </Base>
