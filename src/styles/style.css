@@ -446,20 +446,50 @@ h3 {
 }
 
 /* -------------------------------------------------------------- questions */
-/* Used on faq.html. Question set reads as a list, not as an accordion:      */
-/* every answer stays visible so both readers and crawlers get all of it.    */
+/* Used on faq.html. Question set is an accordion built on native details    */
+/* and summary: questions read as a list, each answer opens on click, tap,   */
+/* Enter or Space. Every answer stays in the HTML, so crawlers get all of it. */
 
 .qset { max-width: var(--measure); }
 
 .qset__item {
-  padding: 1.9rem 0;
   border-top: 1px solid var(--rule);
 }
 
 .qset__item:first-child {
-  padding-top: 0;
   border-top: 0;
 }
+
+.qset__summary {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  min-height: 44px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.qset__summary::-webkit-details-marker { display: none; }
+
+.qset__summary::after {
+  content: "+";
+  font-family: var(--display);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  flex: none;
+  color: var(--slate);
+}
+
+.qset__item[open] > .qset__summary::after { content: "\2212"; }
+
+.qset__summary:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+.qset__body { padding: 0 0 1.6rem; }
 
 .qset__q {
   font-family: var(--display);
@@ -467,7 +497,7 @@ h3 {
   font-size: 1.375rem;
   line-height: 1.35;
   letter-spacing: -0.005em;
-  margin: 0 0 0.7rem;
+  margin: 0;
   color: var(--ink);
 }
 
@@ -477,6 +507,7 @@ h3 {
 .band--navy .qset__q { color: var(--white); }
 .band--navy .qset__a { color: var(--gold-soft); }
 .band--navy .qset__item { border-color: var(--rule-dark); }
+.band--navy .qset__summary::after { color: var(--gold-soft); }
 
 @media (max-width: 40rem) {
   .qset__q { font-size: 1.1875rem; }

@@ -57,7 +57,7 @@ const schema = {
       "name": "What is Bing Places for Business, and why does it matter?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bing is Microsoft's search engine. It is the equivalent of Google Search, and it is built into Windows and the Edge browser. Bing Places for Business is its version of a Google Business Profile: a free listing carrying the practice name, address, phone number, categories, service areas, hours and photographs. It matters more than Bing's share of ordinary searches suggests, because ChatGPT's web search runs on Bing's index rather than Google's, and Microsoft Copilot runs on Bing as well. A practice can rank first on Google and be entirely absent from a ChatGPT answer, simply because nobody has ever claimed the Bing listing. It is free, it takes about an hour, and very few practices have done it. The listing is created or claimed in your name, and the details are matched exactly to the Google Business Profile, because inconsistent name, address and phone details across listings are themselves a cause of a practice being missed."
+        "text": "Bing is Microsoft's search engine. It is the equivalent of Google Search, and it is built into Windows and the Edge browser. Bing Places for Business is its version of a Google Business Profile: a free listing carrying the practice name, address, phone number, categories, service areas, hours and photographs. It matters because Microsoft Copilot is built on Bing, and Bing is one of the places AI assistants look for information about a business. It is free. Claiming it is a short task. Microsoft then reviews the listing before it appears. The listing is created or claimed in your name, and the details are matched exactly to the Google Business Profile, because inconsistent name, address and phone details across listings are themselves a cause of a practice being missed."
       }
     },
     {
@@ -137,129 +137,157 @@ const schema = {
       <h2>What Trivarone does, and how</h2>
 
       <div class="qset">
-        <div class="qset__item">
-          <h3 class="qset__q">What does an SEO and AI SEO discoverability check involve?</h3>
-          <p class="qset__a">
-            Two searches are run: one for the practice name, and one for the service
-            without the name attached.
-          </p>
-          <p class="qset__a">
-            Five places are checked: Google's ordinary results, Google's AI Mode, ChatGPT,
-            Gemini and Perplexity. These are separate systems with separate retrieval, so a
-            practice can appear in one and be missing from the others. Where the practice
-            sits in Google Maps is checked alongside them.
-          </p>
-          <p class="qset__a">
-            Gemini is not the same thing as Google AI Mode, which is why both are checked.
-            AI Mode sits inside Google Search and draws on Google's index. Gemini is a
-            separate app, also used across Android and Google Workspace, and it can return
-            a different answer to the same question.
-          </p>
-          <p class="qset__a">
-            Google's AI Overviews are not included. They appear inconsistently — sometimes
-            above the results, sometimes partway down the page, sometimes not at all for
-            the same query — so there is no reliable way to check them, and reporting on
-            something that cannot be run the same way twice would not tell you anything you
-            could act on.
-          </p>
-          <p class="qset__a">
-            Claude, Grok and Microsoft Copilot are not included either, because none of
-            them can be checked without signing in. A check that runs from inside an
-            account is not a like-for-like view of what a patient sees, so the result would
-            not mean what it appears to mean. If that changes, they will be added.
-          </p>
-          <p class="qset__a">
-            The result shows whether the practice appears when somebody searches for what
-            it does, rather than only when they already know who it is. The initial check
-            is free and takes the form of a short written summary.
-          </p>
-        </div>
+        <details class="qset__item">
+          <summary class="qset__summary">
+            <h3 class="qset__q">What does an SEO and AI SEO discoverability check involve?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              Two searches are run: one for the practice name, and one for the service
+              without the name attached.
+            </p>
+            <p class="qset__a">
+              Five places are checked: Google's ordinary results, Google's AI Mode, ChatGPT,
+              Gemini and Perplexity. These are separate systems with separate retrieval, so a
+              practice can appear in one and be missing from the others. Where the practice
+              sits in Google Maps is checked alongside them.
+            </p>
+            <p class="qset__a">
+              Gemini is not the same thing as Google AI Mode, which is why both are checked.
+              AI Mode sits inside Google Search and draws on Google's index. Gemini is a
+              separate app, also used across Android and Google Workspace, and it can return
+              a different answer to the same question.
+            </p>
+            <p class="qset__a">
+              Google's AI Overviews are not included. They appear inconsistently — sometimes
+              above the results, sometimes partway down the page, sometimes not at all for
+              the same query — so there is no reliable way to check them, and reporting on
+              something that cannot be run the same way twice would not tell you anything you
+              could act on.
+            </p>
+            <p class="qset__a">
+              Claude, Grok and Microsoft Copilot are not included either, because none of
+              them can be checked without signing in. A check that runs from inside an
+              account is not a like-for-like view of what a patient sees, so the result would
+              not mean what it appears to mean. If that changes, they will be added.
+            </p>
+            <p class="qset__a">
+              The result shows whether the practice appears when somebody searches for what
+              it does, rather than only when they already know who it is. The initial check
+              is free and takes the form of a short written summary.
+            </p>
+          </div>
+        </details>
 
-        <div class="qset__item">
-          <h3 class="qset__q">Do I have to hand over my website and account logins?</h3>
-          <p class="qset__a">
-            Only where you choose to. Every account stays in your name. Access to a Google
-            Business Profile, a Bing Places listing or a website can be granted as a manager
-            rather than an owner, and removed at any time.
-          </p>
-          <p class="qset__a">
-            Where you would rather not grant access at all, the changes are written out
-            precisely enough for you or your web person to make them. There is no Trivarone
-            platform to log into, no dashboard to check and no subscription to maintain.
-          </p>
-        </div>
+        <details class="qset__item">
+          <summary class="qset__summary">
+            <h3 class="qset__q">Do I have to hand over my website and account logins?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              Only where you choose to. Every account stays in your name. Access to a Google
+              Business Profile, a Bing Places listing or a website can be granted as a manager
+              rather than an owner, and removed at any time.
+            </p>
+            <p class="qset__a">
+              Where you would rather not grant access at all, the changes are written out
+              precisely enough for you or your web person to make them. There is no Trivarone
+              platform to log into, no dashboard to check and no subscription to maintain.
+            </p>
+          </div>
+        </details>
 
-        <div class="qset__item">
-          <h3 class="qset__q">Can Trivarone help if I do not have a website, or if my existing one needs work?</h3>
-          <p class="qset__a">
-            Yes. Trivarone builds simple websites for small practices and businesses, and
-            improves existing ones.
-          </p>
-          <p class="qset__a">
-            Where a website needs frequent updating by the owner, or requires online
-            bookings or payments, Trivarone will recommend a platform built for that rather
-            than a custom build, and set it up. The recommendation depends on how often the
-            content changes and who will be changing it.
-          </p>
-        </div>
+        <details class="qset__item">
+          <summary class="qset__summary">
+            <h3 class="qset__q">Can Trivarone help if I do not have a website, or if my existing one needs work?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              Yes. Trivarone builds simple websites for small practices and businesses, and
+              improves existing ones.
+            </p>
+            <p class="qset__a">
+              Where a website needs frequent updating by the owner, or requires online
+              bookings or payments, Trivarone will recommend a platform built for that rather
+              than a custom build, and set it up. The recommendation depends on how often the
+              content changes and who will be changing it.
+            </p>
+          </div>
+        </details>
 
-        <div class="qset__item">
-          <h3 class="qset__q">Do you only work with businesses in Brisbane?</h3>
-          <p class="qset__a">
-            No. The work is done and delivered digitally, so location is not a
-            constraint. Trivarone is based in Brisbane and works with clients
-            across Australia. Enquiries from outside Australia are welcome and considered
-            individually.
-          </p>
-        </div>
+        <details class="qset__item">
+          <summary class="qset__summary">
+            <h3 class="qset__q">Do you only work with businesses in Brisbane?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              No. The work is done and delivered digitally, so location is not a
+              constraint. Trivarone is based in Brisbane and works with clients
+              across Australia. Enquiries from outside Australia are welcome and considered
+              individually.
+            </p>
+          </div>
+        </details>
 
-        <div class="qset__item">
-          <h3 class="qset__q">Do you work with doctors and dentists?</h3>
-          <p class="qset__a">
-            Yes. General practitioners and dentists in private practice, and specialists and
-            sub-specialists.
-          </p>
-          <p class="qset__a">
-            On the medical side that includes orthopaedic surgeons, including those working
-            in sports injury or joint replacement, ophthalmologists, including cornea,
-            retina and refractive surgery, paediatricians, dermatologists, cardiologists,
-            ENT surgeons, gastroenterologists, urologists and psychiatrists. In dentistry,
-            orthodontists, periodontists, endodontists, prosthodontists, paediatric dentists
-            and oral and maxillofacial surgeons.
-          </p>
-          <p class="qset__a">
-            Sub-specialty matters here, because patients and referrers search in different
-            words. A practice can appear for one and be missing for the other.
-          </p>
-        </div>
+        <details class="qset__item" id="doctors-and-dentists">
+          <summary class="qset__summary">
+            <h3 class="qset__q">Do you work with doctors and dentists?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              Yes. General practitioners and dentists in private practice, and specialists and
+              sub-specialists.
+            </p>
+            <p class="qset__a">
+              On the medical side that includes orthopaedic surgeons, including those working
+              in sports injury or joint replacement, ophthalmologists, including cornea,
+              retina and refractive surgery, paediatricians, dermatologists, cardiologists,
+              ENT surgeons, gastroenterologists, urologists and psychiatrists. In dentistry,
+              orthodontists, periodontists, endodontists, prosthodontists, paediatric dentists
+              and oral and maxillofacial surgeons.
+            </p>
+            <p class="qset__a">
+              Sub-specialty matters here, because patients and referrers search in different
+              words. A practice can appear for one and be missing for the other.
+            </p>
+          </div>
+        </details>
 
-        <div class="qset__item">
-          <h3 class="qset__q">Do you work with allied health practitioners?</h3>
-          <p class="qset__a">
-            Yes. Physiotherapists, chiropractors, osteopaths, podiatrists, exercise
-            physiologists, myotherapists, remedial massage therapists, psychologists, speech
-            pathologists, occupational therapists, dietitians, audiologists, optometrists
-            and acupuncturists.
-          </p>
-          <p class="qset__a">
-            Local SEO usually matters most for these practices, because the majority of
-            enquiries begin with a suburb and a condition rather than a practice name.
-          </p>
-        </div>
+        <details class="qset__item" id="allied-health">
+          <summary class="qset__summary">
+            <h3 class="qset__q">Do you work with allied health practitioners?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              Yes. Physiotherapists, chiropractors, osteopaths, podiatrists, exercise
+              physiologists, myotherapists, remedial massage therapists, psychologists, speech
+              pathologists, occupational therapists, dietitians, audiologists, optometrists
+              and acupuncturists.
+            </p>
+            <p class="qset__a">
+              Local SEO usually matters most for these practices, because the majority of
+              enquiries begin with a suburb and a condition rather than a practice name.
+            </p>
+          </div>
+        </details>
 
-        <div class="qset__item">
-          <h3 class="qset__q">How long does a piece of work take?</h3>
-          <p class="qset__a">
-            A discoverability check is usually returned within a few days. A single article
-            or a set of listing corrections typically takes under a week. Larger pieces such
-            as a full report or a website build depend on how much source material exists
-            and how quickly questions can be answered.
-          </p>
-          <p class="qset__a">
-            A timeframe is agreed before work begins. If something will be late, you are
-            told before the deadline rather than after it.
-          </p>
-        </div>
+        <details class="qset__item">
+          <summary class="qset__summary">
+            <h3 class="qset__q">How long does a piece of work take?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              A discoverability check is usually returned within a few days. A single article
+              or a set of listing corrections typically takes under a week. Larger pieces such
+              as a full report or a website build depend on how much source material exists
+              and how quickly questions can be answered.
+            </p>
+            <p class="qset__a">
+              A timeframe is agreed before work begins. If something will be late, you are
+              told before the deadline rather than after it.
+            </p>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -270,88 +298,98 @@ const schema = {
       <h2>Where the line sits</h2>
 
       <div class="qset">
-        <div class="qset__item">
-          <h3 class="qset__q">Which advertising rules apply to content written for my practice?</h3>
-          <p class="qset__a">
-            It depends on the profession, and this is checked rather than assumed.
-          </p>
-          <p class="qset__a">
-            Sixteen professions are registered under AHPRA: Aboriginal and Torres Strait
-            Islander health practice, Chinese medicine, chiropractic, dental practice,
-            medical practice, medical radiation practice, midwifery, nursing, occupational
-            therapy, optometry, osteopathy, paramedicine, pharmacy, physiotherapy, podiatry
-            and psychology. For these the National Law and the AHPRA advertising guidelines
-            apply directly: no testimonials, no claims of superiority, nothing creating an
-            unreasonable expectation of benefit, and no offers without full terms.
-          </p>
-          <p class="qset__a">
-            Several allied health professions are not on that list and are self-regulated by
-            their professional association instead. Speech pathology, dietetics, exercise
-            physiology, audiology, myotherapy and remedial massage all sit outside AHPRA,
-            with Speech Pathology Australia, Dietitians Australia and Exercise and Sports
-            Science Australia setting codes for their own members. Specialty bodies such as
-            the Australian Orthopaedic Association publish their own standards as well.
-          </p>
-          <p class="qset__a">
-            Australian Consumer Law applies to every business regardless, and the Therapeutic
-            Goods Administration governs claims about therapeutic products and services.
-          </p>
-          <p class="qset__a">
-            Trivarone identifies which of these apply and flags restrictions in the draft. It
-            does not determine compliance, does not certify anything as compliant, and does
-            not provide clinical advice. You review and approve everything before it is
-            published.
-          </p>
-        </div>
+        <details class="qset__item">
+          <summary class="qset__summary">
+            <h3 class="qset__q">Which advertising rules apply to content written for my practice?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              It depends on the profession, and this is checked rather than assumed.
+            </p>
+            <p class="qset__a">
+              Sixteen professions are registered under AHPRA: Aboriginal and Torres Strait
+              Islander health practice, Chinese medicine, chiropractic, dental practice,
+              medical practice, medical radiation practice, midwifery, nursing, occupational
+              therapy, optometry, osteopathy, paramedicine, pharmacy, physiotherapy, podiatry
+              and psychology. For these the National Law and the AHPRA advertising guidelines
+              apply directly: no testimonials, no claims of superiority, nothing creating an
+              unreasonable expectation of benefit, and no offers without full terms.
+            </p>
+            <p class="qset__a">
+              Several allied health professions are not on that list and are self-regulated by
+              their professional association instead. Speech pathology, dietetics, exercise
+              physiology, audiology, myotherapy and remedial massage all sit outside AHPRA,
+              with Speech Pathology Australia, Dietitians Australia and Exercise and Sports
+              Science Australia setting codes for their own members. Specialty bodies such as
+              the Australian Orthopaedic Association publish their own standards as well.
+            </p>
+            <p class="qset__a">
+              Australian Consumer Law applies to every business regardless, and the Therapeutic
+              Goods Administration governs claims about therapeutic products and services.
+            </p>
+            <p class="qset__a">
+              Trivarone identifies which of these apply and flags restrictions in the draft. It
+              does not determine compliance, does not certify anything as compliant, and does
+              not provide clinical advice. You review and approve everything before it is
+              published.
+            </p>
+          </div>
+        </details>
 
-        <div class="qset__item">
-          <h3 class="qset__q">What is Bing Places for Business, and why does it matter?</h3>
-          <p class="qset__a">
-            Bing is Microsoft's search engine — the equivalent of Google Search, built into
-            Windows and the Edge browser. Bing Places for Business is its version of a
-            Google Business Profile: a free listing carrying the practice name, address,
-            phone number, categories, service areas, hours and photographs.
-          </p>
-          <p class="qset__a">
-            It matters more than Bing's share of ordinary searches suggests, because
-            ChatGPT's web search runs on Bing's index rather than Google's, and Microsoft
-            Copilot runs on Bing as well. A practice can rank first on Google and be
-            entirely absent from a ChatGPT answer, simply because nobody has ever claimed
-            the Bing listing.
-          </p>
-          <p class="qset__a">
-            It is free, it takes about an hour, and very few practices have done it. The
-            listing is created or claimed in your name, and the details are matched exactly
-            to the Google Business Profile — inconsistent name, address and phone details
-            across listings are themselves a cause of a practice being missed.
-          </p>
-        </div>
+        <details class="qset__item">
+          <summary class="qset__summary">
+            <h3 class="qset__q">What is Bing Places for Business, and why does it matter?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              Bing is Microsoft's search engine — the equivalent of Google Search, built into
+              Windows and the Edge browser. Bing Places for Business is its version of a
+              Google Business Profile: a free listing carrying the practice name, address,
+              phone number, categories, service areas, hours and photographs.
+            </p>
+            <p class="qset__a">
+              It matters because Microsoft Copilot is built on Bing, and Bing is one of the
+              places AI assistants look for information about a business.
+            </p>
+            <p class="qset__a">
+              It is free. Claiming it is a short task. Microsoft then reviews the listing
+              before it appears. The
+              listing is created or claimed in your name, and the details are matched exactly
+              to the Google Business Profile — inconsistent name, address and phone details
+              across listings are themselves a cause of a practice being missed.
+            </p>
+          </div>
+        </details>
 
-        <div class="qset__item">
-          <h3 class="qset__q">What do SEO, AI SEO, AEO, GEO and AISO each mean?</h3>
-          <p class="qset__a">
-            SEO, or search engine optimisation, is the long-established practice of making
-            a website and its listings easy for a search engine to find, understand and
-            rank. Local SEO is the part of it concerned with appearing for a service near
-            a place, and for most practices it is the largest part of the work.
-          </p>
-          <p class="qset__a">
-            AI SEO, AEO, answer engine optimisation, GEO, generative engine optimisation,
-            LLMO and AISO, AI search optimisation, are all in active use, and they
-            largely describe the same question: whether AI systems find and recommend
-            you. Some practitioners avoid the abbreviations altogether and speak of AI
-            searchability, which describes the same property in plain words. The field
-            has not settled on one term, and several of them carry more than one meaning.
-          </p>
-          <p class="qset__a">
-            Traditional SEO is not obsolete and has not been replaced. It is the
-            foundation, and the AI layer is built on top of it.
-          </p>
-          <p class="qset__a">
-            Each term is set out in full, with the ambiguities named, in
-            <a href="/articles/ai-seo-terminology/">AI SEO terminology: what AEO, GEO, AISO and AI searchability actually mean</a>.
-          </p>
-        </div>
+        <details class="qset__item">
+          <summary class="qset__summary">
+            <h3 class="qset__q">What do SEO, AI SEO, AEO, GEO and AISO each mean?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              SEO, or search engine optimisation, is the long-established practice of making
+              a website and its listings easy for a search engine to find, understand and
+              rank. Local SEO is the part of it concerned with appearing for a service near
+              a place, and for most practices it is the largest part of the work.
+            </p>
+            <p class="qset__a">
+              AI SEO, AEO, answer engine optimisation, GEO, generative engine optimisation,
+              LLMO and AISO, AI search optimisation, are all in active use, and they
+              largely describe the same question: whether AI systems find and recommend
+              you. Some practitioners avoid the abbreviations altogether and speak of AI
+              searchability, which describes the same property in plain words. The field
+              has not settled on one term, and several of them carry more than one meaning.
+            </p>
+            <p class="qset__a">
+              Traditional SEO is not obsolete and has not been replaced. It is the
+              foundation, and the AI layer is built on top of it.
+            </p>
+            <p class="qset__a">
+              Each term is set out in full, with the ambiguities named, in
+              <a href="/articles/ai-seo-terminology/">AI SEO terminology: what AEO, GEO, AISO and AI searchability actually mean</a>.
+            </p>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -362,40 +400,48 @@ const schema = {
       <h2>Ownership, access and cost</h2>
 
       <div class="qset">
-        <div class="qset__item">
-          <h3 class="qset__q">Who owns the Google Business Profile, the website and the content?</h3>
-          <p class="qset__a">
-            You do, in every case. This matters more in search work than people expect.
-          </p>
-          <p class="qset__a">
-            A Google Business Profile, a domain or a website registered under an agency
-            account can be difficult or impossible to take with you when the arrangement
-            ends. It is a common way practices find themselves stuck with a provider they
-            would rather leave.
-          </p>
-          <p class="qset__a">
-            Nothing is ever registered under a Trivarone account. Where a listing or a site
-            already exists, ownership stays exactly where it is and Trivarone is added as a
-            manager, which you can remove at any time. Where something new is created, it is
-            created in your name from the start.
-          </p>
-          <p class="qset__a">
-            Written content belongs to the practice outright, with no branding and no
-            attribution required.
-          </p>
-        </div>
+        <details class="qset__item">
+          <summary class="qset__summary">
+            <h3 class="qset__q">Who owns the Google Business Profile, the website and the content?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              You do, in every case. This matters more in search work than people expect.
+            </p>
+            <p class="qset__a">
+              A Google Business Profile, a domain or a website registered under an agency
+              account can be difficult or impossible to take with you when the arrangement
+              ends. It is a common way practices find themselves stuck with a provider they
+              would rather leave.
+            </p>
+            <p class="qset__a">
+              Nothing is ever registered under a Trivarone account. Where a listing or a site
+              already exists, ownership stays exactly where it is and Trivarone is added as a
+              manager, which you can remove at any time. Where something new is created, it is
+              created in your name from the start.
+            </p>
+            <p class="qset__a">
+              Written content belongs to the practice outright, with no branding and no
+              attribution required.
+            </p>
+          </div>
+        </details>
 
-        <div class="qset__item">
-          <h3 class="qset__q">How does Trivarone charge?</h3>
-          <p class="qset__a">
-            Per piece of work, quoted before anything begins, so the figure is known in
-            advance. There are no retainers required to start and no ongoing commitment.
-          </p>
-          <p class="qset__a">
-            The first check is free. Some practices return regularly, and some have one
-            thing corrected and never need another. Both are fine.
-          </p>
-        </div>
+        <details class="qset__item">
+          <summary class="qset__summary">
+            <h3 class="qset__q">How does Trivarone charge?</h3>
+          </summary>
+          <div class="qset__body">
+            <p class="qset__a">
+              Per piece of work, quoted before anything begins, so the figure is known in
+              advance. There are no retainers required to start and no ongoing commitment.
+            </p>
+            <p class="qset__a">
+              The first check is free. Some practices return regularly, and some have one
+              thing corrected and never need another. Both are fine.
+            </p>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -415,4 +461,15 @@ const schema = {
       </div>
     </div>
   </section>
+  <script is:inline>
+    // Opens the question named in the address, for links such as /faq/#allied-health.
+    (function () {
+      function openTarget() {
+        var el = location.hash && document.getElementById(location.hash.slice(1));
+        if (el && el.tagName === 'DETAILS') el.open = true;
+      }
+      openTarget();
+      window.addEventListener('hashchange', openTarget);
+    })();
+  </script>
 </Base>
