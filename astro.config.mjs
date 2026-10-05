@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.trivarone.com',
+  site: 'https://www.trivarone.com.au',
   trailingSlash: 'always',
   build: {
     format: 'directory',
