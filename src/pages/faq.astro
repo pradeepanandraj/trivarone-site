@@ -14,10 +14,10 @@ const schema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What does an SEO and AI SEO discoverability check involve?",
+      "name": "What does the AI Search Snapshot involve?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Two searches are run: one for the practice name, and one for the service without the name attached. The places checked are Google's ordinary results, Google's AI Mode, ChatGPT and Gemini. These are separate systems with separate retrieval, so a practice can appear in one and be missing from the others. Where the practice sits in Google Maps is checked alongside them. Gemini is not the same as Google AI Mode, which is why both are checked. AI Mode sits inside Google Search and draws on Google's index. Gemini is a separate app, also used across Android and Google Workspace, and it can return a different answer to the same question. Google's AI Overviews are not included, because they appear inconsistently — sometimes above the results, sometimes partway down the page, sometimes not at all for the same query — so there is no reliable way to check them. Claude, Grok and Microsoft Copilot are not included either, because none of them can be checked without signing in, and a check that runs from inside an account is not a like-for-like view of what a patient sees. If that changes, they will be added. The initial check is free and takes the form of a short written summary."
+        "text": "The AI Search Snapshot from Trivarone is two searches and a short written answer. I search for your practice by name, then by the service you offer with your name left out, and email you what came back. The places checked are Google's ordinary results, Google's AI Mode, ChatGPT and Gemini. These are separate systems with separate retrieval, so a practice can appear in one and be missing from the others. Where the practice sits in Google Maps is checked alongside them. Gemini is not the same as Google AI Mode, which is why both are checked. AI Mode sits inside Google Search and draws on Google's index. Gemini is a separate app, also used across Android and Google Workspace, and it can return a different answer to the same question. Google's AI Overviews are not included, because they appear inconsistently — sometimes above the results, sometimes partway down the page, sometimes not at all for the same query — so there is no reliable way to check them. Claude, Grok and Microsoft Copilot are not included either, because none of them can be checked without signing in, and a check that runs from inside an account is not a like-for-like view of what a patient sees. If that changes, they will be added. The result shows whether the practice appears when somebody searches for what it does, rather than only when they already know who it is. The snapshot is where my SEO and AI SEO work starts. SEO is about being found on Google. AI SEO is about being named in AI answers, such as ChatGPT. There is no charge for the snapshot."
       }
     },
     {
@@ -89,7 +89,7 @@ const schema = {
       "name": "How long does a piece of work take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A discoverability check is usually returned within a few days. A single article or a set of listing corrections typically takes under a week. Larger pieces such as a full report or a website build depend on how much source material exists and how quickly questions can be answered. A timeframe is agreed before work begins, and if something will be late you are told before the deadline rather than after it."
+        "text": "An AI Search Snapshot takes me a few days. A single article or a set of listing corrections typically takes under a week. Larger pieces such as a full report or a website build depend on how much source material exists and how quickly questions can be answered. A timeframe is agreed before work begins, and if something will be late you are told before the deadline rather than after it."
       }
     },
     {
@@ -105,7 +105,7 @@ const schema = {
       "name": "How does Trivarone charge?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Per piece of work, quoted before anything begins, so the figure is known in advance. The first check is free. There are no retainers required to start and no ongoing commitment. Some practices return regularly and some have one thing corrected and never need another. Both are fine."
+        "text": "Per piece of work, quoted before anything begins, so the figure is known in advance. There is no charge for the AI Search Snapshot. There are no retainers required to start and no ongoing commitment. Some practices return regularly and some have one thing corrected and never need another. Both are fine."
       }
     }
   ]
@@ -113,10 +113,10 @@ const schema = {
 ---
 <Base
   title="Common Questions — AI SEO for Healthcare — Trivarone"
-  description="Straight answers on what a discoverability check involves, whether location matters, what you need to learn, and how regulated professions are handled."
+  description="Straight answers on what the AI Search Snapshot involves, whether location matters, what you need to learn, and how regulated professions are handled."
   path="/faq"
   ogTitle="Common Questions — Trivarone"
-  ogDescription="What a discoverability check involves, whether location matters, what software you need to learn, and how regulated professions are handled."
+  ogDescription="What the AI Search Snapshot involves, whether location matters, what software you need to learn, and how regulated professions are handled."
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
 
@@ -139,12 +139,13 @@ const schema = {
       <div class="qset">
         <details class="qset__item">
           <summary class="qset__summary">
-            <h3 class="qset__q">What does an SEO and AI SEO discoverability check involve?</h3>
+            <h3 class="qset__q">What does the AI Search Snapshot involve?</h3>
           </summary>
           <div class="qset__body">
             <p class="qset__a">
-              Two searches are run: one for the practice name, and one for the service
-              without the name attached.
+              The AI Search Snapshot from Trivarone is two searches and a short written
+              answer. I search for your practice by name, then by the service you offer
+              with your name left out, and email you what came back.
             </p>
             <p class="qset__a">
               The places checked are Google's ordinary results, Google's AI Mode, ChatGPT
@@ -173,8 +174,12 @@ const schema = {
             </p>
             <p class="qset__a">
               The result shows whether the practice appears when somebody searches for what
-              it does, rather than only when they already know who it is. The initial check
-              is free and takes the form of a short written summary.
+              it does, rather than only when they already know who it is.
+            </p>
+            <p class="qset__a">
+              The snapshot is where my SEO and AI SEO work starts. SEO is about being found
+              on Google. AI SEO is about being named in AI answers, such as ChatGPT. There
+              is no charge for the snapshot.
             </p>
           </div>
         </details>
@@ -277,7 +282,7 @@ const schema = {
           </summary>
           <div class="qset__body">
             <p class="qset__a">
-              A discoverability check is usually returned within a few days. A single article
+              An AI Search Snapshot takes me a few days. A single article
               or a set of listing corrections typically takes under a week. Larger pieces such
               as a full report or a website build depend on how much source material exists
               and how quickly questions can be answered.
@@ -385,8 +390,7 @@ const schema = {
               foundation, and the AI layer is built on top of it.
             </p>
             <p class="qset__a">
-              Each term is set out in full, with the ambiguities named, in
-              <a href="/articles/ai-seo-terminology/">AI SEO terminology: what AEO, GEO, AISO and AI searchability actually mean</a>.
+              Each term is set out in full, with the ambiguities named, in <a href="/articles/ai-seo-terminology/">AI SEO terminology: what AEO, GEO, AISO and AI searchability actually mean</a>.
             </p>
           </div>
         </details>
@@ -437,7 +441,7 @@ const schema = {
               advance. There are no retainers required to start and no ongoing commitment.
             </p>
             <p class="qset__a">
-              The first check is free. Some practices return regularly, and some have one
+              There is no charge for the AI Search Snapshot. Some practices return regularly, and some have one
               thing corrected and never need another. Both are fine.
             </p>
           </div>

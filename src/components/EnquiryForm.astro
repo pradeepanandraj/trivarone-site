@@ -1,29 +1,94 @@
 ---
 import '../styles/form.css';
 
-// Wraps the Formspree form and its submit handler. check and contact used the
-// same 38-line script, differing only in these two element ids.
+// Wraps the Formspree form and its submit handler, shared by check and contact.
+// On success the visitor is sent to /thanks/ with the form and the reply choice
+// in the address, so the page can show the matching message. No personal
+// details go in the address.
 interface Props {
   formId: string;
-  successId: string;
+  thanksForm: 'snapshot' | 'enquiry';
 }
-const { formId, successId } = Astro.props;
+const { formId, thanksForm } = Astro.props;
 ---
 <slot />
 
-<script is:inline define:vars={{ formId, successId }}>
+<script is:inline define:vars={{ formId, thanksForm }}>
 (function () {
   var form = document.getElementById(formId);
-  var done = document.getElementById(successId);
-  if (!form || !done) return;
+  if (!form) return;
+  form.noValidate = true;
+
+  var phone = form.querySelector('input[name="phone"]');
+  var phoneNote = form.querySelector('[data-phone-note]');
+  var subject = form.querySelector('input[name="_subject"]');
+  var baseSubject = subject ? subject.value : '';
+
+  function choice() {
+    return form.querySelector('input[name="how_to_hear_back"]:checked');
+  }
+
+  // A call needs a number, so Phone is required for any choice marked data-call.
+  function syncPhone() {
+    var c = choice();
+    var needed = !!(c && c.hasAttribute('data-call'));
+    if (phone) phone.required = needed;
+    if (phoneNote) phoneNote.textContent = needed ? 'needed for a call' : 'optional';
+    if (!needed && phone) clearError(phone);
+  }
+
+  function errorFor(field) {
+    return document.getElementById(field.id + '-error');
+  }
+
+  function showError(field) {
+    var el = errorFor(field);
+    if (!el) return;
+    var msg = field.getAttribute('data-error') || 'Please fill this in.';
+    if (field.validity.typeMismatch && field.getAttribute('data-error-format')) {
+      msg = field.getAttribute('data-error-format');
+    }
+    el.textContent = msg;
+    el.hidden = false;
+    field.setAttribute('aria-invalid', 'true');
+  }
+
+  function clearError(field) {
+    var el = errorFor(field);
+    if (el) { el.textContent = ''; el.hidden = true; }
+    field.removeAttribute('aria-invalid');
+  }
+
+  form.querySelectorAll('input[name="how_to_hear_back"]').forEach(function (r) {
+    r.addEventListener('change', syncPhone);
+  });
+  form.querySelectorAll('input, textarea').forEach(function (f) {
+    f.addEventListener('input', function () {
+      if (f.getAttribute('aria-invalid') === 'true' && f.checkValidity()) clearError(f);
+    });
+  });
+  syncPhone();
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    var first = null;
+    form.querySelectorAll('input[id], textarea[id]').forEach(function (f) {
+      if (!errorFor(f)) return;
+      if (f.checkValidity()) { clearError(f); }
+      else { showError(f); if (!first) first = f; }
+    });
+    if (first) { first.focus(); return; }
+
+    var c = choice();
+    if (subject && c && c.getAttribute('data-subject')) {
+      subject.value = baseSubject + ' (' + c.getAttribute('data-subject') + ')';
+    }
+
     var button = form.querySelector('button[type="submit"]');
     var original = button.textContent;
     button.disabled = true;
-    button.textContent = 'Sending...';
+    button.textContent = 'Sending…';
 
     fetch(form.action, {
       method: 'POST',
@@ -32,11 +97,8 @@ const { formId, successId } = Astro.props;
     })
     .then(function (response) {
       if (response.ok) {
-        form.reset();
-        form.hidden = true;
-        done.hidden = false;
-        done.setAttribute('tabindex', '-1');
-        done.focus();
+        var reply = c ? c.getAttribute('data-reply') : 'email';
+        window.location.href = '/thanks/?form=' + thanksForm + '&reply=' + reply;
       } else {
         button.disabled = false;
         button.textContent = original;

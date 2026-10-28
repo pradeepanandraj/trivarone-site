@@ -8,5 +8,9 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [
+    mdx(),
+    // /thanks/ is the post-form page; it carries noindex and stays out of the sitemap.
+    sitemap({ filter: (page) => !page.includes('/thanks/') }),
+  ],
 });

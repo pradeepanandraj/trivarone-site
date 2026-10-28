@@ -32,15 +32,15 @@ const schema = {
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
 
-  <EnquiryForm formId="enquiry" successId="formsuccess">
+  <EnquiryForm formId="enquiry" thanksForm="enquiry">
   <section class="titleblock">
     <div class="shell">
       <p class="eyebrow">Contact</p>
       <h1>Describe the problem. That is <em>enough</em> to start.</h1>
       <p class="standfirst">
         Send a few sentences about the business and what is getting in the way. Email
-        directly, or use the form further down — whichever suits you. There is no call to
-        book before anyone will speak to you.
+        me, or use the form further down. If you would rather talk first, call or text
+        me on <a href="tel:+61469219318">+61 469 219 318</a>.
       </p>
       <div class="actions">
         <a class="btn btn--lower" href="mailto:pradeep@trivarone.com.au?subject=Enquiry%20via%20trivarone.com.au">Email pradeep@trivarone.com.au</a>
@@ -123,21 +123,46 @@ const schema = {
         </p>
       </div>
 
-      <div class="formsuccess" id="formsuccess" hidden>
-        <p class="formsuccess__title">Message sent.</p>
-        <p>Thank you. A reply usually follows within one business day.</p>
-      </div>
+      <p class="formcall">
+        Prefer to talk? Call or text Pradeep on <a href="tel:+61469219318">+61 469 219 318</a>.
+      </p>
 
       <form class="enquiry" id="enquiry" action="https://formspree.io/f/xgawweeb" method="POST">
 
         <div class="field">
           <label for="name">Your name</label>
-          <input type="text" id="name" name="name" required autocomplete="name">
+          <input type="text" id="name" name="name" required autocomplete="name"
+            aria-describedby="name-error" data-error="Please add your name.">
+          <p class="fielderror" id="name-error" aria-live="polite" hidden></p>
         </div>
 
         <div class="field">
           <label for="email">Email address</label>
-          <input type="email" id="email" name="email" required autocomplete="email">
+          <input type="email" id="email" name="email" required autocomplete="email"
+            aria-describedby="email-error" data-error="Please add your email address, so I can reply."
+            data-error-format="Please check your email address. It should look like name@yourpractice.com.au.">
+          <p class="fielderror" id="email-error" aria-live="polite" hidden></p>
+        </div>
+
+        <fieldset class="field choice">
+          <legend>How would you like to hear back?</legend>
+          <label class="choice__option">
+            <input type="radio" name="how_to_hear_back" value="Email me"
+              data-reply="email" data-subject="reply by email" checked>
+            Email me
+          </label>
+          <label class="choice__option">
+            <input type="radio" name="how_to_hear_back" value="Call me"
+              data-reply="call" data-subject="call me" data-call>
+            Call me
+          </label>
+        </fieldset>
+
+        <div class="field">
+          <label for="phone">Phone <span class="optional" data-phone-note>optional</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel"
+            aria-describedby="phone-error" data-error="Please add a phone number so I can call you, or choose Email me.">
+          <p class="fielderror" id="phone-error" aria-live="polite" hidden></p>
         </div>
 
         <div class="field">
@@ -147,8 +172,10 @@ const schema = {
 
         <div class="field">
           <label for="message">What is getting in the way?</label>
-          <textarea id="message" name="message" rows="7" required
-            placeholder="A few sentences about the practice and what you would like looked at."></textarea>
+          <textarea id="message" name="message" rows="7" required autocomplete="off"
+            placeholder="A few sentences about the practice and what you would like looked at."
+            aria-describedby="message-error" data-error="Please tell me in a sentence or two what you would like looked at."></textarea>
+          <p class="fielderror" id="message-error" aria-live="polite" hidden></p>
         </div>
 
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot">

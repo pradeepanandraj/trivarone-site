@@ -102,56 +102,80 @@
   pointer-events: none;
 }
 
-/* --------------------------------------------------------- success message */
-
-.formsuccess {
-  max-width: 34rem;
-  margin-top: 2.5rem;
-  padding: 2rem 2.25rem;
-  background: var(--navy);
-  color: #C7CEE0;
-  border: 0;
-  border-top: 3px solid var(--gold);
-  position: relative;
-}
-
-.formsuccess:focus { outline: none; }
-
-.formsuccess__title {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: 1.5rem;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  text-transform: none;
-  color: var(--white);
-  margin: 0 0 0.85rem;
-  padding-left: 2.25rem;
-  position: relative;
-}
-
-/* Tick mark drawn in CSS — no image needed */
-.formsuccess__title::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.45rem;
-  width: 0.55rem;
-  height: 1rem;
-  border-right: 2px solid var(--gold);
-  border-bottom: 2px solid var(--gold);
-  transform: rotate(42deg);
-}
-
-.formsuccess p:last-child {
-  margin: 0;
-  color: #C7CEE0;
-  font-size: 1rem;
-  line-height: 1.6;
-  padding-left: 2.25rem;
-}
-
 .enquiry .btn:disabled {
   opacity: 0.55;
   cursor: default;
 }
+
+/* ------------------------------------------------------------ reply choice */
+
+.choice {
+  border: 0;
+  padding: 0;
+  margin: 0 0 1.5rem;
+}
+
+.choice legend {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 0.55rem;
+  padding: 0;
+}
+
+/* The whole row is the hit target: label wraps the radio. */
+.field .choice__option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: var(--body);
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  line-height: 1.45;
+  margin: 0;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+}
+
+.field .choice__option:first-of-type { border-top: 1px solid var(--rule); }
+
+.field .choice__option input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  flex: none;
+  accent-color: var(--navy);
+}
+
+.field .choice__option:focus-within {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------- inline errors */
+
+.fielderror {
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+  color: #A3341F;
+}
+
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: #A3341F;
+}
+
+/* ------------------------------------------------------- call line by form */
+
+.formcall {
+  margin: 1.75rem 0 0;
+  font-size: 1.0625rem;
+}
+
+.formcall a { white-space: nowrap; }

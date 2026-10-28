@@ -14,6 +14,8 @@ interface Props {
   ogDescription?: string;
   ogType?: string;
   bodyClass?: string;
+  /** Keeps the page out of search results, e.g. /thanks/. */
+  noindex?: boolean;
 }
 
 const {
@@ -24,6 +26,7 @@ const {
   ogDescription = description,
   ogType = 'website',
   bodyClass,
+  noindex = false,
 } = Astro.props;
 
 const SITE = 'https://www.trivarone.com.au';
@@ -36,6 +39,7 @@ const ogImage = `${SITE}/og-image.png`;
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content={description}>
+{noindex && <meta name="robots" content="noindex">}
 <link rel="canonical" href={canonical}>
 
 <meta property="og:type" content={ogType}>

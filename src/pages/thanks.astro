@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Request received | Trivarone"
+  description="Your request has reached Trivarone."
+  path="/thanks"
+  noindex
+>
+  <section class="titleblock">
+    <div class="shell">
+      <p class="eyebrow">Thank you</p>
+
+      <!-- One message per form and reply choice. The snapshot email message shows
+           by default, so the page reads correctly without a choice or without script. -->
+      <div data-msg="snapshot-email">
+        <h1>Request received.</h1>
+        <p class="standfirst">
+          Thank you. I will write your AI Search Snapshot and email it to you within a
+          few days. If it has not arrived, please check your junk folder, or
+          write to <a href="mailto:pradeep@trivarone.com.au">pradeep@trivarone.com.au</a>.
+        </p>
+      </div>
+
+      <div data-msg="snapshot-email-call" hidden>
+        <h1>Request received.</h1>
+        <p class="standfirst">
+          Thank you. I will write your AI Search Snapshot and email it to you within a
+          few days. If it has not arrived, please check your junk folder, or
+          write to <a href="mailto:pradeep@trivarone.com.au">pradeep@trivarone.com.au</a>.
+        </p>
+        <p class="standfirst">
+          Once I have sent it, I will call you on the number you gave to go through it.
+        </p>
+      </div>
+
+      <div data-msg="snapshot-call" hidden>
+        <h1>Request received.</h1>
+        <p class="standfirst">
+          Thank you. I will call you within one business day for a short introductory
+          call.
+        </p>
+      </div>
+
+      <div data-msg="enquiry-email" data-title="Message received | Trivarone" hidden>
+        <h1>Message received.</h1>
+        <p class="standfirst">
+          Thank you. I will reply by email within one business day. If my reply
+          has not arrived, please check your junk folder, or write to <a href="mailto:pradeep@trivarone.com.au">pradeep@trivarone.com.au</a>.
+        </p>
+      </div>
+
+      <div data-msg="enquiry-call" data-title="Message received | Trivarone" hidden>
+        <h1>Message received.</h1>
+        <p class="standfirst">
+          Thank you. I will call you within one business day on the number you gave.
+        </p>
+      </div>
+
+      <p class="standfirst">
+        Would you rather talk now? Call or text <a href="tel:+61469219318" style="white-space:nowrap;">+61 469 219 318</a>.
+      </p>
+
+      <div class="actions">
+        <a class="btn" href="/how-practices-get-found/">Read How practices get found</a>
+        <a class="btn btn--ghost" href="/">Back to the home page</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .standfirst { margin-bottom: 1rem; }
+  </style>
+
+  <script is:inline>
+  (function () {
+    var q = new URLSearchParams(window.location.search);
+    var key = (q.get('form') || '') + '-' + (q.get('reply') || '');
+    var pick = document.querySelector('[data-msg="' + key.replace(/[^a-z-]/g, '') + '"]');
+    if (!pick) return;
+    document.querySelectorAll('[data-msg]').forEach(function (el) { el.hidden = el !== pick; });
+    if (pick.getAttribute('data-title')) document.title = pick.getAttribute('data-title');
+  })();
+  </script>
+</Base>

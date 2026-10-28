@@ -6,7 +6,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": "https://www.trivarone.com.au/check#service",
-  "name": "Search and AI Discoverability Check",
+  "name": "AI Search Snapshot",
   "url": "https://www.trivarone.com.au/check/",
   "serviceType": "Search and AI discoverability assessment",
   "description": "Two searches are run for a practice across Google's ordinary results, Google's AI Mode, ChatGPT and Gemini, along with where the practice appears in Google Maps. One search is for the practice name. The other is for the service the practice offers, without the name attached. The result is a short written summary showing whether the practice appears when somebody searches for what it does.",
@@ -26,30 +26,31 @@ const schema = {
     "price": "0",
     "priceCurrency": "AUD",
     "availability": "https://schema.org/InStock",
-    "description": "The initial check is free. There is no obligation and no follow-up sales sequence."
+    "description": "There is no charge for the AI Search Snapshot. There is no obligation and no follow-up sales sequence."
   }
 };
 ---
 <Base
-  title="The Free Discoverability Check — Trivarone"
-  description="A free written check showing whether your health or allied health practice appears when somebody searches for what you do, not just for your name."
+  title="AI Search Snapshot | Trivarone"
+  description="The AI Search Snapshot from Trivarone: I search for your practice the way a patient would, on Google, ChatGPT and Gemini, and email you a short written answer."
   path="/check"
-  ogDescription="Does your practice appear when somebody searches for what you do? Two searches, one short written answer. Free."
+  ogDescription="Does your practice appear when somebody searches for what you do? I search the way a patient would and email you a short written answer."
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
 
-  <EnquiryForm formId="checkform" successId="checksuccess">
+  <EnquiryForm formId="checkform" thanksForm="snapshot">
   <section class="titleblock">
     <div class="shell">
-      <p class="eyebrow">The free check</p>
+      <p class="eyebrow">AI Search Snapshot</p>
       <h1>Search your practice name. Then search <em>what you do</em>.</h1>
       <p class="standfirst">
-        If the first works and the second does not, you have the most common
-        problem I see. This check tells you which of the two you have, in about
-        thirty seconds of your time.
+        The AI Search Snapshot is a short written answer from Trivarone for health
+        practices. I search for your practice the way a patient would, on Google,
+        ChatGPT and Gemini, and tell you whether you appear. Your part takes about
+        a minute.
       </p>
       <div class="actions">
-        <a class="btn" href="#request">Ask for the check</a>
+        <a class="btn" href="#request">Ask for the snapshot</a>
         <a class="btn btn--ghost" href="#what-happens">See what you get</a>
       </div>
     </div>
@@ -58,7 +59,7 @@ const schema = {
   <section class="band" id="what-happens">
     <div class="shell">
       <p class="section-label">What it involves</p>
-      <h2>Two searches, one short written answer</h2>
+      <h2>What the snapshot covers</h2>
 
       <div class="prose">
         <p class="lede">
@@ -119,12 +120,11 @@ const schema = {
       <div class="prose">
         <p>
           Your practice name, your website, and the service you would most want
-          to be found for. That is the whole intake. No form of twenty questions,
-          no discovery call, no access to any of your accounts.
+          to be found for. That is the whole intake. You can talk to me first if
+          you prefer, or receive the snapshot by email.
         </p>
         <p>
-          The check is returned as a short written summary, usually within a few
-          days. It is written to be read once and understood, not to demonstrate
+          I email you the snapshot within a few days. It is written to be read once and understood, not to demonstrate
           how much work went into it.
         </p>
         <p>
@@ -149,7 +149,7 @@ const schema = {
         </p>
         <p>
           <strong>It is not a score.</strong> A number out of a hundred tells you
-          nothing you can act on. The check tells you what is happening and what
+          nothing you can act on. The snapshot tells you what is happening and what
           is causing it.
         </p>
         <p>
@@ -190,13 +190,13 @@ const schema = {
         <li class="piece">
           <a href="/faq/">
             <span class="piece__title">Common questions</span>
-            <span class="piece__note">What the check involves, what it costs, and where the limits are.</span>
+            <span class="piece__note">What the snapshot involves, what it costs, and where the limits are.</span>
           </a>
         </li>
         <li class="piece">
           <a href="/services/">
             <span class="piece__title">What Trivarone produces</span>
-            <span class="piece__note">If the check finds something worth doing, this is the work that follows.</span>
+            <span class="piece__note">If the snapshot finds something worth doing, this is the work that follows.</span>
           </a>
         </li>
       </ul>
@@ -206,49 +206,86 @@ const schema = {
   <section class="band band--rule" id="request">
     <div class="shell">
       <p class="section-label">Ask for it</p>
-      <h2>Three things, and that is the whole intake</h2>
+      <h2>Five short answers, and that is all I need</h2>
 
       <div class="prose">
         <p>
-          No discovery call, no questionnaire, and no access to any of your
-          accounts. The check is returned as a short written summary, usually
-          within a few days.
+          Two searches, one short written answer. There is no charge and no obligation.
+        </p>
+        <p>
+          I do not need a questionnaire or access to any of your accounts.
         </p>
       </div>
 
-      <div class="formsuccess" id="checksuccess" hidden>
-        <p class="formsuccess__title">Request received.</p>
-        <p>Thank you. The check is usually returned within a few days, by email.</p>
-      </div>
+      <p class="formcall">
+        Prefer to talk? Call or text Pradeep on <a href="tel:+61469219318">+61 469 219 318</a>.
+      </p>
 
       <form class="enquiry" id="checkform" action="https://formspree.io/f/xgawweeb" method="POST">
 
         <div class="field">
           <label for="cf-business">Practice name</label>
-          <input type="text" id="cf-business" name="business" required autocomplete="organization">
+          <input type="text" id="cf-business" name="business" required autocomplete="organization"
+            aria-describedby="cf-business-error" data-error="Please add your practice name.">
+          <p class="fielderror" id="cf-business-error" aria-live="polite" hidden></p>
         </div>
 
         <div class="field">
           <label for="cf-website">Website</label>
-          <input type="text" id="cf-website" name="website" required
-            placeholder="yourbusiness.com.au" autocomplete="url">
+          <input type="text" id="cf-website" name="website" required inputmode="url"
+            placeholder="yourbusiness.com.au" autocomplete="url"
+            aria-describedby="cf-website-error" data-error="Please add your website address. If you do not have one, write none.">
+          <p class="fielderror" id="cf-website-error" aria-live="polite" hidden></p>
         </div>
 
         <div class="field">
           <label for="cf-service">The one service you would most want to be found for</label>
-          <input type="text" id="cf-service" name="service" required
-            placeholder="For example: shoulder rehabilitation, or dental implants">
+          <input type="text" id="cf-service" name="service" required autocomplete="off"
+            placeholder="For example: shoulder rehabilitation, or dental implants"
+            aria-describedby="cf-service-error" data-error="Please add the service you want to be found for.">
+          <p class="fielderror" id="cf-service-error" aria-live="polite" hidden></p>
         </div>
 
         <div class="field">
           <label for="cf-suburb">Suburb or area you work in</label>
-          <input type="text" id="cf-suburb" name="suburb" required
-            placeholder="The area a patient would search alongside the service">
+          <input type="text" id="cf-suburb" name="suburb" required autocomplete="address-level2"
+            placeholder="The area a patient would search alongside the service"
+            aria-describedby="cf-suburb-error" data-error="Please add the suburb or area you work in.">
+          <p class="fielderror" id="cf-suburb-error" aria-live="polite" hidden></p>
         </div>
 
         <div class="field">
           <label for="cf-email">Email address</label>
-          <input type="email" id="cf-email" name="email" required autocomplete="email">
+          <input type="email" id="cf-email" name="email" required autocomplete="email"
+            aria-describedby="cf-email-error" data-error="Please add your email address, so I can send you the snapshot."
+            data-error-format="Please check your email address. It should look like name@yourpractice.com.au.">
+          <p class="fielderror" id="cf-email-error" aria-live="polite" hidden></p>
+        </div>
+
+        <fieldset class="field choice">
+          <legend>How would you like to hear back?</legend>
+          <label class="choice__option">
+            <input type="radio" name="how_to_hear_back" value="Email me the snapshot"
+              data-reply="email" data-subject="email the snapshot" checked>
+            Email me the snapshot
+          </label>
+          <label class="choice__option">
+            <input type="radio" name="how_to_hear_back" value="Email me the snapshot, then call me to go through it"
+              data-reply="email-call" data-subject="email, then call" data-call>
+            Email me the snapshot, then call me to go through it
+          </label>
+          <label class="choice__option">
+            <input type="radio" name="how_to_hear_back" value="Call me first for a short introductory call"
+              data-reply="call" data-subject="call first" data-call>
+            Call me first for a short introductory call
+          </label>
+        </fieldset>
+
+        <div class="field">
+          <label for="cf-phone">Phone <span class="optional" data-phone-note>optional</span></label>
+          <input type="tel" id="cf-phone" name="phone" autocomplete="tel" inputmode="tel"
+            aria-describedby="cf-phone-error" data-error="Please add a phone number so I can call you, or choose Email me the snapshot.">
+          <p class="fielderror" id="cf-phone-error" aria-live="polite" hidden></p>
         </div>
 
         <div class="field">
@@ -258,15 +295,15 @@ const schema = {
 
         <div class="field">
           <label for="cf-note">Anything else worth knowing <span class="optional">optional</span></label>
-          <textarea id="cf-note" name="note" rows="4"
+          <textarea id="cf-note" name="note" rows="4" autocomplete="off"
             placeholder="Only if there is something specific you would like looked at."></textarea>
         </div>
 
         <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="honeypot">
-        <input type="hidden" name="_subject" value="Free discoverability check request via trivarone.com.au">
+        <input type="hidden" name="_subject" value="AI Search Snapshot request via trivarone.com.au">
 
         <div class="actions">
-          <button class="btn" type="submit">Request the check</button>
+          <button class="btn" type="submit">Request the snapshot</button>
         </div>
 
         <p class="formnote">
@@ -290,7 +327,7 @@ const schema = {
         </p>
       </div>
       <div class="actions">
-        <a class="btn" href="#request">Ask for the check</a>
+        <a class="btn" href="#request">Ask for the snapshot</a>
       </div>
     </div>
   </section>
