@@ -445,6 +445,28 @@ h3 {
   outline-offset: 4px;
 }
 
+/* ---------------------------------------------------------------- founder */
+/* Photograph and LinkedIn link beside the founder's name on about.         */
+
+.founder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.founder h2 { margin-bottom: 0.75rem; }
+
+.founder__photo {
+  width: 160px;
+  border: 1px solid var(--rule);
+}
+
+@media (min-width: 720px) {
+  .founder__photo { width: 200px; }
+}
+
 /* -------------------------------------------------------------- questions */
 /* Used on faq.html. Question set is an accordion built on native details    */
 /* and summary: questions read as a list, each answer opens on click, tap,   */

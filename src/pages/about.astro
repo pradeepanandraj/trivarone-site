@@ -7,13 +7,15 @@ const schema = {
   "@id": "https://www.trivarone.com.au/about#pradeep",
   "name": "Pradeep Anandraj",
   "jobTitle": "Founder",
-  "email": "pradeep@trivarone.com",
+  "email": "pradeep@trivarone.com.au",
+  "telephone": "+61469219318",
+  "image": "https://www.trivarone.com.au/images/pradeep-anandraj.webp",
   "url": "https://www.trivarone.com.au/about/",
   "worksFor": {
     "@id": "https://www.trivarone.com.au/#organisation"
   },
   "sameAs": [
-    "https://www.linkedin.com/in/pradeepanandraj"
+    "https://www.linkedin.com/in/pradeepanandraj/"
   ],
   "address": {
     "@type": "PostalAddress",
@@ -54,7 +56,26 @@ const schema = {
   <section class="band">
     <div class="shell">
       <p class="section-label">The founder</p>
-      <h2>Pradeep Anandraj</h2>
+      <div class="founder">
+        <img
+          class="founder__photo"
+          src="/images/pradeep-anandraj.webp"
+          alt="Pradeep Anandraj, founder of Trivarone, Brisbane"
+          width="600"
+          height="566"
+          loading="eager"
+          decoding="async"
+        />
+        <div>
+          <h2>Pradeep Anandraj</h2>
+          <a class="social__link" href="https://www.linkedin.com/in/pradeepanandraj/" target="_blank" rel="me noopener" aria-label="Pradeep Anandraj on LinkedIn">
+            <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false">
+              <rect width="24" height="24" rx="2.6" fill="#0A66C2"></rect>
+              <path fill="#FFFFFF" d="M6.94 5.5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
       <div class="prose">
         <p class="lede">
           My father was an anaesthetist. I grew up seeing what a doctor's working life asks

@@ -9,7 +9,7 @@ const schema = {
   "name": "Search and AI Discoverability Check",
   "url": "https://www.trivarone.com.au/check/",
   "serviceType": "Search and AI discoverability assessment",
-  "description": "Two searches are run for a practice across five places: Google's ordinary results, Google's AI Mode, ChatGPT, Gemini and Perplexity, along with where the practice appears in Google Maps. One search is for the practice name. The other is for the service the practice offers, without the name attached. The result is a short written summary showing whether the practice appears when somebody searches for what it does.",
+  "description": "Two searches are run for a practice across Google's ordinary results, Google's AI Mode, ChatGPT and Gemini, along with where the practice appears in Google Maps. One search is for the practice name. The other is for the service the practice offers, without the name attached. The result is a short written summary showing whether the practice appears when somebody searches for what it does.",
   "provider": {
     "@id": "https://www.trivarone.com.au/#organisation"
   },
@@ -34,7 +34,7 @@ const schema = {
   title="The Free Discoverability Check — Trivarone"
   description="A free written check showing whether your health or allied health practice appears when somebody searches for what you do, not just for your name."
   path="/check"
-  ogDescription="Does your practice appear when somebody searches for what you do? Two searches, five places, one short written answer. Free."
+  ogDescription="Does your practice appear when somebody searches for what you do? Two searches, one short written answer. Free."
 >
   <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
 
@@ -58,12 +58,12 @@ const schema = {
   <section class="band" id="what-happens">
     <div class="shell">
       <p class="section-label">What it involves</p>
-      <h2>Two searches, five places</h2>
+      <h2>Two searches, one short written answer</h2>
 
       <div class="prose">
         <p class="lede">
-          Two searches are run for your practice across five places: Google's
-          ordinary results, Google's AI Mode, ChatGPT, Gemini and Perplexity.
+          Two searches are run for your practice across Google's ordinary
+          results, Google's AI Mode, ChatGPT and Gemini.
           Where you appear in Google Maps is checked alongside them.
         </p>
         <p>
@@ -81,8 +81,8 @@ const schema = {
         <li class="outcome">
           <h3>Whether you appear at all</h3>
           <p>
-            Across all five surfaces, for your own category. Some practices
-            appear in one and not the other four. Some appear in none.
+            In each place checked, for your own category. Some practices
+            appear in one and not the others. Some appear in none.
           </p>
         </li>
         <li class="outcome">
